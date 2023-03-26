@@ -230,14 +230,15 @@ button:not(:disabled) {
   font-size: 14px;
 }
 
-#article-container a:not([data-fancybox="gallery"]):not(.headerlink):not(.cf-friends-link):not(.tag-Link) {
+#article-container
+  a:not([data-fancybox="gallery"]):not(.headerlink):not(.cf-friends-link):not(.tag-Link):not(.btn-beautify) {
   font-weight: 500;
   border-bottom: solid 2px var(--anzhiyu-lighttext);
   color: var(--anzhiyu-fontcolor);
   padding: 0 0.2em;
   text-decoration: none;
 }
-#article-container a:not([data-fancybox="gallery"]):not(.headerlink):not(.cf-friends-link):hover {
+#article-container a:not([data-fancybox="gallery"]):not(.headerlink):not(.cf-friends-link):not(.btn-beautify):hover {
   color: var(--anzhiyu-white);
   background: var(--anzhiyu-theme);
   box-shadow: var(--anzhiyu-shadow-lightblack);

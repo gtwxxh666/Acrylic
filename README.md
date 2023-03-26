@@ -42,10 +42,6 @@ theme: Acrylic
 
 > 如果你没有 pug 以及 stylus 的渲染器，请下载安装： `npm install hexo-renderer-pug hexo-renderer-stylus --save`
 
-### 相关帮助
-
-暂无
-
 ### 主题设计
 
 [@张洪 Heo](https://github.com/zhheo)
@@ -56,11 +52,11 @@ theme: Acrylic
   在博客根目录运行
 
 ```bash
-cp -rf ./themes/anzhiyu/_config.yml ./_config.anzhiyu.yml
+cp -rf ./themes/acrylic/_config.yml ./_config.acrylic.yml
 ```
 
 - windows
-  复制`/themes/anzhiyu/_config.yml`此文件到 hexo 根目录，并重命名为`_config.anzhiyu.yml`
+  复制`/themes/acrylic/_config.yml`此文件到 hexo 根目录，并重命名为`_config.acrylic.yml`
 
 ## 仓库统计
 

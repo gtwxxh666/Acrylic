@@ -39,7 +39,6 @@
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  background: url(https://img02.anzhiy.cn/adminuploads/1/2022/09/11/631ddb7c9b250.png) center center no-repeat;
   background-size: 100%;
 }
 
@@ -48,7 +47,6 @@
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
   box-sizing: border-box;
-  background: url(https://img02.anzhiy.cn/adminuploads/1/2022/09/11/631ddeb0900b7.png) center center no-repeat;
   background-size: 100%;
 }
 #flip-wrapper:hover #flip-content {

@@ -79,7 +79,7 @@ div
   //- 自定义js
   script(data-pjax src="/js/anzhiyufunction.js")
   script(async src="/js/anzhiyuOnlyOne.js")
-  script(async data-pjax src="/js/anzhiyu.js")
+  script(data-pjax src="/js/anzhiyu.js")
   //- 标题卖萌
   if theme.diytitle.enable
     != partial("includes/anzhiyu/title-js.pug", {}, { cache: true })

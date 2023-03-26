@@ -1,3 +1,7 @@
+.post
+  +maxWidth768()
+    #aside-content
+      background: rgba(255, 255, 255, 0.9);
 #aside-content
   width: 26%
 
@@ -9,6 +13,10 @@
 
   +maxWidth900()
     width: 100%
+
+  +maxWidth768()
+    padding: 20px
+    margin: -1px;
 
   > .card-widget:first-child
     margin-top: 0
@@ -74,6 +82,13 @@
 
     span
       margin-left: 6px
+
+  .sticky_layout
+    +minWidth900()
+      position: sticky
+      position: -webkit-sticky
+      top: 20px
+      transition: top .3s
 
   .card-tag-cloud
     a
@@ -204,10 +219,7 @@
         div
           &:first-child
             flex: 1
-            padding-right: 1rem
-            letter-spacing: 1px
-            font-weight: normal
-            margin-left: 5px
+            padding-right: 20px
 
   // toc
   #card-toc
@@ -248,6 +260,7 @@
         & > .toc-item > .toc-child
           margin-left: 10px
           padding-left: 10px
+          border-left: 1px solid var(--dark-grey)
 
       &:not(.is-expand)
         .toc-child
@@ -376,6 +389,9 @@
         width: 80%
 
 .page
+  .sticky_layout
+    display: flex
+    flex-direction: column
 
   if hexo-config('aside.card_recent_post.sort_order')
     .card-recent-post

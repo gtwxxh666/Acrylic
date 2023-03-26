@@ -1,5 +1,6 @@
 - const { envId, region, option } = theme.twikoo
-- const { use, lazyload, count } = theme.comments
+- const { use, count } = theme.comments
+- const { lazyload } = theme.comments
 
 script.
   (()=>{
@@ -41,7 +42,6 @@ script.
       } 
       getScript('!{url_for(theme.asset.twikoo)}').then(runFn)
     }
-
     if ('!{use[0]}' === 'Twikoo' || !!{lazyload}) {
       if (!{lazyload}) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
       else loadTwikoo()

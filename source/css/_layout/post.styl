@@ -81,6 +81,7 @@ beautify()
     margin: 0 auto 20px
     max-width: 100%
     transition: filter 375ms ease-in .2s
+    border-radius: 8px
 
   p
     margin: 0 0 16px
@@ -152,33 +153,33 @@ beautify()
 
 #post
   .tag_share
-    &:after
-      display: block
-      clear: both
-      content: ''
-
+    display: flex
+    align-items: center;
+    justify-content: space-between;
     .post-meta
-      &__tag-list
-        display: inline-block
+      &__box
+        display: flex
+        flex-direction: column;
+        
+        &__tag-list,&__category-list
+          display: flex
 
-      &__tags
-        display: inline-block
-        margin: 8px 8px 8px 0
-        padding: 0 12px
-        width: fit-content
-        border: 1px solid $light-blue
-        border-radius: 12px
-        color: $light-blue
-        font-size: .85em
-        transition: all .2s ease-in-out
+        &__tags,&__categoryes
+          display: flex
+          align-items: center
+          justify-content: center
+          margin: 8px 8px 8px 0
+          padding: 0 12px
+          width: fit-content
+          border-radius: 8px
+          font-size: .85em
+          transition: all .2s ease-in-out
 
-        &:hover
-          background: $light-blue
-          color: var(--white)
+          &:hover
+            background: $light-blue
+            color: var(--white)
 
     .post_share
-      display: inline-block
-      float: right
       margin: 8px 0 0
       width: fit-content
 
@@ -191,6 +192,40 @@ beautify()
           height: w
           font-size: 1.2em
           line-height: w
+
+  .post-copyright
+    position: relative
+    margin: 40px 0 10px
+    padding: 10px 16px
+    border: 1px solid var(--light-grey)
+    transition: box-shadow .3s ease-in-out
+
+    &:before
+      @extend .fontawesomeIcon
+      position: absolute
+      top: 2px
+      right: 12px
+      color: $theme-color
+      content: '\f1f9'
+      font-size: 1.3em
+
+    &:hover
+      box-shadow: 0 0 8px 0 rgba(232, 237, 250, .6), 0 2px 4px 0 rgba(232, 237, 250, .5)
+
+    .post-copyright
+      &-meta
+        color: $light-blue
+        font-weight: bold
+
+      &-info
+        padding-left: 6px
+
+        a
+          text-decoration: underline
+          word-break: break-word
+
+          &:hover
+            text-decoration: none
 
   .post-outdate-notice
     position: relative

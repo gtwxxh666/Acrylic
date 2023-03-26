@@ -1,7 +1,7 @@
 -
   var options = {
-    prev_text: '<i class="fas fa-chevron-left fa-fw"></i><div class="pagination-prev">上页</div>',
-    next_text: '<div class="pagination-next">下页</div><i class="fas fa-chevron-right fa-fw"></i>',
+    prev_text: '<i class="fas fa-chevron-left fa-fw"></i><div class="pagination_tips_prev">上页</div>',
+    next_text: '<div class="pagination_tips_next">下页</div><i class="fas fa-chevron-right fa-fw"></i>',
     mid_size: 1,
     escape: false
   }
@@ -13,67 +13,30 @@ if is_post()
     if(prev)
       - var hasPageNext = next ? 'pull-left' : 'pull-full'
       .prev-post(class=hasPageNext)
-        a(href=url_for(prev.path) title=prev.title)
-          if prev.cover_type === 'img'
-            img.cover(src=url_for(prev.cover) onerror=`onerror=null;src='${url_for(theme.error_img.post_page)}'` alt='cover of previous post')
-          else
-            .cover(style=`background: ${prev.cover || 'var(--default-bg-color)'}`)
+        - var pagination_cover = prev.cover === false ? prev.randomcover : prev.cover
+        a(href=url_for(prev.path))
+          img.prev-cover(src=url_for(pagination_cover) onerror=`onerror=null;src='${url_for(theme.error_img.post_page)}'` alt='cover of previous post')
           .pagination-info
             .label=_p('pagination.prev')
             .prev_info=prev.title
-            //- Display the article introduction on homepage
-            case theme.index_post_content.method
-              when false
-                - break
-              when 1
-                .content!= prev.description
-              when 2
-                if prev.description
-                  .content!= prev.description
-                else
-                  - const content = strip_html(prev.content)
-                  - let expert = content.substring(0, theme.index_post_content.length) 
-                  - content.length > theme.index_post_content.length ? expert += ' ...' : ''
-                  .content!= expert
-              default
-                - const content = strip_html(prev.content)
-                - let expert = content.substring(0, theme.index_post_content.length) 
-                - content.length > theme.index_post_content.length ? expert += ' ...' : ''
-                .content!= expert
           
     if(next)
       - var hasPagePrev = prev ? 'pull-right' : 'pull-full'
+      - var pagination_cover = next.cover == false ? next.randomcover : next.cover
       .next-post(class=hasPagePrev)
-        a(href=url_for(next.path) title=next.title)
-          if next.cover_type === 'img'
-            img.cover(src=url_for(next.cover) onerror=`onerror=null;src='${url_for(theme.error_img.post_page)}'` alt='cover of next post')
-          else
-            .cover(style=`background: ${next.cover || 'var(--default-bg-color)'}`)
+        a(href=url_for(next.path))
+          img.next-cover(src=url_for(pagination_cover) onerror=`onerror=null;src='${url_for(theme.error_img.post_page)}'` alt='cover of next post')
           .pagination-info
             .label=_p('pagination.next')
             .next_info=next.title
-            //- Display the article introduction on homepage
-            case theme.index_post_content.method
-              when false
-                - break
-              when 1
-                .content!= next.description
-              when 2
-                if next.description
-                  .content!= next.description
-                else
-                  - const content = strip_html(next.content)
-                  - let expert = content.substring(0, theme.index_post_content.length) 
-                  - content.length > theme.index_post_content.length ? expert += ' ...' : ''
-                  .content!= expert
-              default
-                - const content = strip_html(next.content)
-                - let expert = content.substring(0, theme.index_post_content.length) 
-                - content.length > theme.index_post_content.length ? expert += ' ...' : ''
-                .content!= expert
 else
   nav#pagination
     .pagination
       if is_home()
         - options.format = 'page/%d/#content-inner'
       !=paginator(options)
+      if is_home()
+        div(class="toPageGroup")
+          input(id="toPageText" oninput="value=value.replace(/[^0-9]/g,'')" maxlength="3" onkeyup="this.value=this.value.replace(/[^u4e00-u9fa5w]/g,'')")
+          a(id="toPageButton" onclick="anzhiyu.toPage()")
+            i(class="fas fa-angles-right")

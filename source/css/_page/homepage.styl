@@ -1,6 +1,9 @@
 #recent-posts
   & > .recent-post-item:not(:first-child)
     margin-top: 20px
+    animation: slide-in 0.6s 0.4s backwards;
+    +maxWidth768()
+      margin: 20px 20px 0
 
   & > .recent-post-item
     @extend .cardHover
@@ -16,7 +19,9 @@
 
     &:hover
       img.post_bg
-        transform: scale(1.1)
+        filter: brightness(0.82) !important;
+        transform: scale(1.03) !important
+        transition: 0.3s ease-in-out;
 
     &.ads-wrap
       display: block !important
@@ -41,11 +46,11 @@
           order: 0
 
     & >.recent-post-info
-      padding: 0 40px
+      padding: 23px 40px 0
       width: 57%
 
       +maxWidth768()
-        padding: 20px 20px 30px
+        padding: 20px 20px 10px
         width: 100%
 
       &.no-cover
@@ -60,7 +65,7 @@
         font-size: 1.72em
         line-height: 1.4
         transition: all .2s ease-in-out
-        -webkit-line-clamp: 2
+        -webkit-line-clamp: 2 !important
 
         +maxWidth768()
           font-size: 1.43em

@@ -7,9 +7,10 @@ if hexo-config('preloader')
     background: var(--anzhiyu-card-bg);
     z-index: 1001;
     opacity: 1;
-    transition: .3s;
 
   #loading-box
+    position: absolute;
+    top: 0;
     .loading-img
       width: 100px;
       height: 100px;
@@ -30,6 +31,17 @@ if hexo-config('preloader')
       top: 50%;
       left: 50%;
       transform: translate(18px, 24px);
+    #loading-percentage
+      position: absolute;
+      top: 67%;
+      left: 50%;
+      transform: translateX(-50%);
+      &::before
+        content: "「"
+        margin-right: 10px
+      &::after
+        content: "」"
+        margin-left: 10px
     &.loaded
       .loading-bg
         opacity: 0;

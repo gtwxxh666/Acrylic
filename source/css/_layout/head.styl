@@ -1,18 +1,6 @@
 #page-header
   position: relative
   width: 100%
-  background-color: $light-blue
-  background-position: center center
-  background-size: cover
-  background-repeat: no-repeat
-  transition: all .5s
-
-  &:not(.not-top-img):before
-    position: absolute
-    width: 100%
-    height: 100%
-    background-color: alpha($dark-black, .3)
-    content: ''
 
   // index
   &.full_page
@@ -93,36 +81,56 @@
   // post
   &.post-bg
     height: 400px
-
+    #nav
+      backdrop-filter: none;
+      background: transparent;
+      border-bottom: none;
+    &.nav-fixed
+      #nav
+        backdrop-filter: saturate(180%) blur(20px);
+        background: var(--anzhiyu-maskbgdeep);
+        border-bottom: var(--style-border);
+        transform: translateZ(0);
+      +maxWidth768()
+        #nav
+          border-bottom: none
     +maxWidth768()
       height: 360px
+      &.nav-fixed
+        #nav
+          background: var(--anzhiyu-background);
 
-    &:before
-      background-color: alpha($dark-black, .5)
+    &:before    
+      position: absolute
+      width: 100%
+      height: 100%
+      content: ''
+      transition: 0s;
+      background-color: var(--anzhiyu-bar-background);
+      animation: slide-in-op 0.6s 0s forwards;
 
   #post-info
     position: absolute
-    bottom: 100px
-    padding: 0 8%
+    top: 0
+    padding: 0 12%
     width: 100%
-    text-align: center
-
-    +maxWidth900()
-      bottom: 30px
-      text-align: left
+    height 100%
+    display: flex
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 3
+    animation: slide-in 0.6s 0.3s backwards;
 
     +maxWidth768()
-      bottom: 22px
-      padding: 0 22px
+      padding: 0 6%;
 
   &.not-top-img
+    margin-bottom: 10px
     height: 60px
     background: 0
 
     #nav
-      background: rgba(255, 255, 255, .8)
-      box-shadow: 0 5px 6px -5px rgba(133, 133, 133, .6)
-
       a
         color: var(--font-color)
         text-shadow: none
@@ -130,12 +138,8 @@
   &.nav-fixed
     #nav
       position: fixed
-      top: -60px
       z-index: 91
-      background: rgba(255, 255, 255, .8)
-      box-shadow: 0 5px 6px -5px alpha($grey, .6)
-      transition: transform .2s ease-in-out, opacity .2s ease-in-out
-
+      
       a,
       #site-name,
       #toggle-menu
@@ -143,17 +147,19 @@
         text-shadow: none
 
         &:hover
-          color: $light-blue
+          color: var(--white)
+    
+    #menus
+      transform: translateY(-60px);
+      transition: 0.3s;
 
   &.nav-visible
-    #nav
-      transition: all .5s
-      transform: translate3d(0, 100%, 0)
-
-    & + .layout
-      & > .aside-content > .sticky_layout
-        top: 70px
-        transition: top .5s
+    #name-container
+      transform: translateY(60px);
+    #menus
+      transition: 0.3s;
+      line-height: 60px;
+      transform: translateY(0px);
 
 #page
   h1.page-title
@@ -188,6 +194,7 @@
 
     +maxWidth768()
       font-size: 2.1em
+      z-index: 4
 
     .post-edit-link
       padding-left: 10px
@@ -195,6 +202,12 @@
   #post-meta
     color: var(--light-grey)
     font-size: 95%
+    display: flex;
+    width: 50rem;
+    max-width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 
     +minWidth768()
       > .meta-secondline
@@ -203,6 +216,7 @@
 
     +maxWidth768()
       font-size: 90%
+      z-index: 4
 
       > .meta-firstline,
       > .meta-secondline
@@ -220,6 +234,15 @@
           margin-right: 4px
         else
           display: none
+      &-categories
+        a:not([data-fancybox="gallery"])
+          font-weight: 500;
+          text-decoration: none;
+          padding: 0 0.2em;
+          &:hover 
+            color: var(--anzhiyu-white);
+            background-color: var(--anzhiyu-main);
+            border-radius: 4px;
 
     a
       color: var(--light-grey)
@@ -234,26 +257,25 @@
         display: none
 
 #nav
-  position: absolute
+  position: fixed
+  transition: border 0s, all 0s
   top: 0
   z-index: 90
   display: flex
   align-items: center
-  padding: 0 36px
+  padding: 0 calc((100% - 1370px) / 2);
   width: 100%
   height: 60px
   font-size: 1.3em
-  opacity: 0
-  transition: all .5s
+  opacity: 1
+  justify-content: space-between;
+  border-bottom: var(--style-border);
+  background: var(--anzhiyu-maskbgdeep);
+  backdrop-filter: saturate(180%) blur(20px);
+  transform: translateZ(0);
 
   +maxWidth768()
     padding: 0 16px
-
-  &.show
-    opacity: 1
-
-  #blog_name
-    flex: 1
 
   #toggle-menu
     display: none
@@ -270,7 +292,7 @@
       color: var(--white)
 
   #site-name
-    text-shadow: 2px 2px 4px rgba($dark-black, .15)
+    // text-shadow: 2px 2px 4px rgba($dark-black, .15)
     font-weight: bold
     cursor: pointer
 
@@ -294,22 +316,16 @@
         transition: transform .3s
 
       .menus_item_child
-        padding: 6px 4px 8px 4px
-        border-radius: 100px
-        background-color: var(--heo-card-bg)
-        box-shadow: var(--heo-shadow-black)
-        border: var(--style-border)
-        transition: 0.3s
-        backdrop-filter: blur(20px)
-        left: 50%
-        transform: translate(-50%) !important
-        top: 35px
         position: absolute
         right: 0
         display: none
         margin-top: 8px
+        padding: 0
         width: max-content
-        animation: 0.3s ease 0.1s 1 normal both sub_menu
+        border-radius: 5px
+        background-color: var(--sidebar-bg)
+        box-shadow: 0 5px 20px -4px rgba($dark-black, .5)
+        animation: sub_menus .3s .1s ease both
 
         &:before
           position: absolute
@@ -318,6 +334,21 @@
           width: 100%
           height: 20px
           content: ''
+
+        li
+          list-style: none
+
+          &:hover
+            background: var(--text-bg-hover)
+
+          &:first-child
+            border-top-left-radius: 50px
+            border-top-right-radius: 50px
+
+          &:last-child
+            border-bottom-right-radius: 50px
+            border-bottom-left-radius: 50px
+
           a
             display: inline-block
             padding: 8px 16px
@@ -344,7 +375,7 @@
 
   .site-page
     position: relative
-    text-shadow: 1px 1px 2px rgba($dark-black, .3)
+    padding-bottom: 6px
     font-size: .78em
     cursor: pointer
 
@@ -356,6 +387,7 @@
         z-index: -1
         width: 0
         height: 3px
+        background-color: lighten($theme-color, 30%)
         content: ''
         transition: all .3s ease-in-out
 

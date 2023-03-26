@@ -1,3 +1,7 @@
+footer:
+  framework: 框架
+  theme: 主题
+
 copy:
   success: 复制成功
   error: 复制错误
@@ -28,20 +32,20 @@ post:
     copyright_notice: 版权声明
     copyright_content: '本博客所有文章除特别声明外，均采用
       <a href="%s" target="_blank">%s</a> 许可协议。转载请注明来自 <a href="%s" target="_blank">%s</a>！'
-  recommend: 阅读建议
+  recommend: 相关推荐
   edit: 编辑
 
 search:
-  title: 搜索
+  title: "搜索"
   load_data: 数据库加载中
   algolia_search:
-    input_placeholder: 搜索文章
-    hits_empty: '找不到您查询的内容：${query}'
-    hits_stats: '找到 ${hits} 条结果，用时 ${time} 毫秒'
+    input_placeholder: 键入后按下回车搜索！
+    hits_empty: "找不到您查询的内容：${query}"
+    hits_stats: "找到 ${hits} 条结果，用时 ${time} 毫秒"
 
   local_search:
     input_placeholder: 搜索文章
-    hits_empty: '找不到您查询的内容：${query}'
+    hits_empty: "找不到您查询的内容：${query}"
 
 pagination:
   prev: 上一篇
@@ -53,7 +57,6 @@ aside:
   articles: 文章
   tags: 标签
   categories: 分类
-  card_author: 作者信息
   card_announcement: 公告
   card_categories: 分类
   card_tags: 标签
@@ -88,23 +91,19 @@ date_suffix:
   day: 天前
   month: 个月前
 
-donate: 打赏
+donate: 不给糖果就捣蛋
 share: 分享
 
 rightside:
   readmode_title: 阅读模式
   translate_title: 简繁转换
-  night_mode_title: 昼夜切换
+  night_mode_title: 浅色和深色模式转换
   back_to_top: 回到顶部
   toc: 目录
   scroll_to_comment: 直达评论
   setting: 设置
-  ranklist: 打赏榜单
-  SAOSwitch: 右键开关
-  SAORefresh: 点击刷新
-  chat_btn: 与我联系
-  live2d_widget: 看板娘
-  aside: 侧栏显隐
+  aside: 单栏和双栏切换
+  chat: 聊天
 
 copy_copyright:
   author: 作者

@@ -11,7 +11,7 @@
 .fontawesomeIcon
   display: inline-block
   font-weight: 600
-  font-family: 'Font Awesome 6 Free'
+  font-family: 'Font Awesome 6 Pro'
   text-rendering: auto
   -webkit-font-smoothing: antialiased
 
@@ -136,6 +136,10 @@ if hexo-config('enter_transitions')
 .scroll-down-effects
   animation: scroll-down-effect 1.5s infinite
 
+if hexo-config('avatar.effect') == true
+  .avatar-img
+    animation: avatar_turn_around 2s linear infinite
+
 .reward-main
   animation: donate_effcet .3s .1s ease both
 
@@ -209,6 +213,12 @@ if hexo-config('enter_transitions')
   100%
     opacity: 0
 
+@keyframes ribbon_to_show
+  0%
+    opacity: 0
+
+  100%
+    opacity: hexo-config('canvas_ribbon.alpha')
 
 @keyframes avatar_turn_around
   from

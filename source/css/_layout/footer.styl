@@ -1,9 +1,12 @@
 #footer
   position: relative
-  background: $light-blue
+  background: var(--global-bg)
   background-attachment: scroll
   background-position: bottom
   background-size: cover
+  +maxWidth768()
+    background: rgba(255, 255, 255, 0.9);
+    z-index: 3
 
   if hexo-config('footer_bg') != false
     &:before

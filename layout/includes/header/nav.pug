@@ -1,68 +1,74 @@
-- var nav=theme.nav
-nav#nav.show
-  #nav-group
-    #blog_name
-      .back-home-button(tabindex='-1')
-        if nav.left_groups.enable
-          i.back-home-button-icon.fas.fa-grip-vertical
-          .back-menu-list-groups
-            each item in nav.left_groups.group
-              .back-menu-list-group
-                .back-menu-list-title=item.title
-                  .back-menu-list
-                    each i in item.a_item
-                      if i.class == "in"
-                        a.back-menu-item(href=`${i.link}` rel='external nofollow' title=`${i.text}` target='_blank')
-                          img.back-menu-item-icon.entered.loading(src=`${i.img}` data-ll-status='loading')
-                          span.back-menu-item-text=i.text
-                      else if i.class == "out"
-                        a.back-menu-item(href=`${i.link}` title=`${i.text}` target='_blank')
-                          img.back-menu-item-icon.entered.loading(src=`${i.img}` data-ll-status='loading')
-                          span.back-menu-item-text=i.text
-                      else 
-                        a.back-menu-item(href=`${i.link}` title=`${i.text}` target='_blank')
-                          img.back-menu-item-icon.entered.loading(src=`${i.img}` data-ll-status='loading')
-                          span.back-menu-item-text=i.text
-      if nav.logo.enable
-        a#site-name(href='/' title='返回博客主页')
-          if nav.logo.class == "i_class"
-            i(class=`${nav.logo.custom}`)
-          else if nav.logo.class == "img"
-            i(style=`background-image: url('${url_for(nav.logo.custom)}')`)
-          else if nav.logo.class == "text"
-            i=nav.logo.custom
-    #page-name-mask
-      #page-name
-        a#page-name-text(onclick='btf.scrollToDest(0, 500)')
-          span #[=config.title]
-    #menus
-      !=partial('includes/header/menu_item', {}, {cache: true})
-    #nav-left
-      if nav.fps_enable
-        #fps-group.show
-          #fps
-          span.fpsText FPS
-    #nav-right
-      if nav.right_button.travelling
-        #travellings_button.nav-button.only-home(style='display: none')
-          a.site-page(onclick='totraveling()' title='随机前往一个开往项目网站' href='javascript:void(0);' rel='external nofollow')
-            i.fas.fa-train-subway
-      if nav.right_button.random
-        #randomPost_button.nav-button
-          a.site-page(onclick='toRandomPost()' title='随机前往一个文章')
-            i.fas.fa-shuffle
-      #search-button.nav-button
-        a.site-page.social-icon.search(title='站内搜索' href='javascript:void(0);' rel='external nofollow')
-          i.fas.fa-magnifying-glass
-      if nav.right_button.console
-        #nav-console.nav-button
-          a.console_switchbutton(onclick='heo.showConsole()' title='显示中控台' href='javascript:void(0);' rel='external nofollow')
-            i.fas.fa-bars-progress
-      if nav.right_button.totop
-        #nav-totop.nav-button(onclick='btf.scrollToDest(0, 500)')
-          a.totopbtn(data-pjax-state='')
-            i.fas.fa-arrow-up
-            span#percent 0
-      #toggle-menu
-        a.site-page(data-pjax-state='')
-          i.fas.fa-bars.fa-fw
+- const { darkmode } = theme
+nav#nav
+  span#blog_name
+    .back-home-button(tabindex='-1')
+      i.back-home-button-icon.fas.fa-grip-vertical
+      .back-menu-list-groups
+        .back-menu-list-group
+          .back-menu-list-title 网页
+          .back-menu-list
+            a.back-menu-item(href='https://index.anzhiy.cn/', title='前往个人主页', target='_blank', )
+              img.back-menu-item-icon(src='https://index.anzhiy.cn/assets/home.svg')
+              span.back-menu-item-text 个人主页
+            a.back-menu-item(href='/', title='前往博客主页', target='_blank', )
+              img.back-menu-item-icon(src='https://img02.anzhiy.cn/adminuploads/1/2022/09/05/6315ec9737ac4.png')
+              span.back-menu-item-text 博客
+            a.back-menu-item(href='https://www.cloud.anzhiy.cn/', title='前往云盘主页', target='_blank', )
+              img.back-menu-item-icon(src='https://img02.anzhiy.cn/adminuploads/1/2022/09/15/63232b7d91d22.jpg')
+              span.back-menu-item-text 云盘主页
+            a.back-menu-item(href='https://image.anzhiy.cn/', title='前往安知鱼图床', target='_blank')
+              img.back-menu-item-icon(src='https://image.anzhiy.cn/favicon.ico')
+              span.back-menu-item-text 安知鱼图床
+            a.back-menu-item(href='https://pan.anzhiy.cn/', title='前往alist文件管理', target='_blank')
+              img.back-menu-item-icon(src='https://cloud.anzhiy.cn/static/img/c192.png')
+              span.back-menu-item-text alist文件管理
+        .back-menu-list-group
+          .back-menu-list-title 项目
+          .back-menu-list
+            a.back-menu-item(href='https://cloud.anzhiy.cn/', title='前往安知鱼云盘', target='_blank', )
+              img.back-menu-item-icon(src='https://img02.anzhiy.cn/adminuploads/1/2022/04/27/6268e7d9de532.png')
+              span.back-menu-item-text 安知鱼云盘
+            a.back-menu-item(href='http://blgou.net/#/main/home', title='查看德信官网', target='_blank', rel='noopener nofollow', )
+              img.back-menu-item-icon(src='https://img02.anzhiy.cn/adminuploads/1/2022/09/15/6322cd942dbd9.png')
+              span.back-menu-item-text 德信官网
+
+    a#site-name(href=url_for('/'))
+      .title #[=config.title]
+      i.fa-solid.fa-house
+
+  div.mask-name-container
+    center(id="name-container")
+      a(id="page-name" href="javascript:btf.scrollToDest(0, 500)") PAGE_NAME
+    
+  #menus
+    !=partial('includes/header/menu_item', {}, {cache: true})
+  #nav-right
+    .nav-button.only-home#travellings_button(style='display: flex')
+      a.site-page(onclick='totraveling()', title='随机前往一个开往项目网站', href='javascript:void(0);', rel='external nofollow', data-pjax-state='external')
+        i.fa-solid.fa-train-subway(style='font-size:1.2rem')
+
+    .nav-button#randomPost_button
+      a.site-page(onclick='toRandomPost()', title='随机前往一个文章', href='javascript:void(0);')
+        i.fa-solid.fa-dice(style='font-size:1.2rem')
+    
+    if (theme.algolia_search.enable || theme.local_search.enable)
+      div.nav-button#search-button
+        a.site-page.social-icon.search(href='javascript:void(0);', title='搜索🔍')
+          i.fas.fa-search.fa-fw
+          span=' '+_p('search.title')
+    
+    if darkmode.enable && darkmode.button
+      div.nav-button#darkmode_navswitch
+        a.darkmode_switchbutton(type="button" href='javascript:void(0);' title=_p('rightside.night_mode_title') onclick="rm.switchDarkMode()")
+          i.fas.fa-adjust
+
+    div.nav-button#nav-totop
+      a.totopbtn(href='javascript:void(0);')
+        i.fas.fa-arrow-up
+        span#percent(onclick="btf.scrollToDest(0,500)") 0
+    
+    #toggle-menu
+      a.site-page(href='javascript:void(0);')
+        i.fas.fa-bars.fa-fw
+
+

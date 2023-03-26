@@ -3,29 +3,51 @@ hr
 #post-comment
   .comment-head
     .comment-headline
-      i.fas.fa-message.fa-fw
-      span  &#x8BC4;&#x8BBA;
+      i.fas.fa-comments.fa-fw
+      span= ' ' + _p('comment')
     .comment-randomInfo
-      a(onclick='heo.addRandomCommentInfo()' href='javascript:void(0)' rel='external nofollow' data-pjax-state='external') &#x533F;&#x540D;&#x8BC4;&#x8BBA;
-    .comment-privacy
-      a(href='/privacy/' data-pjax-state='') &#x9690;&#x79C1;&#x653F;&#x7B56;
-    #comment-tips.comment-tips
-      span ✅ 你无需删除空行，直接评论以获取最佳展示效果
-
+      a(onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)") 匿名评论
+    
     if theme.comments.use.length > 1
       #comment-switch
         span.first-comment=defaultComment
         span.switch-btn
         span.second-comment=theme.comments.use[1]
+    
+    .comment-tips#comment-tips
+      span 你无需删除空行，直接评论以获取最佳展示效果
 
 
   .comment-wrap
     each name in theme.comments.use
       div
         case name
+          when 'Disqus'
+            #disqus_thread
+          when 'Valine'
+            #vcomment.vcomment
+          when 'Disqusjs'
+            #disqusjs
+          when 'Livere'
+            #lv-container(data-id="city" data-uid=theme.livere.uid)
+          when 'Gitalk'
+            #gitalk-container
+          when 'Utterances'
+            #utterances-wrap
           when 'Twikoo'
             #twikoo-wrap
           when 'Waline'
             #waline-wrap
+          when 'Giscus'
+            #giscus-wrap
+          when 'Facebook Comments'
+            .fb-comments(data-colorscheme = theme.display_mode === 'dark' ? 'dark' : 'light'
+                        data-numposts= theme.facebook_comments.pageSize || 10
+                        data-order-by= theme.facebook_comments.order_by || 'social'
+                        data-width="100%")
+          when 'Remark42'
+            #remark42
           when 'Artalk'
             #artalk-wrap
+
+  .comment-barrage

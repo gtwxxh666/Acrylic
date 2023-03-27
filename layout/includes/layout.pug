@@ -48,7 +48,9 @@ html(lang=config.language data-theme=theme.display_mode class=htmlClassHideAside
 
     !=partial('includes/sidebar', {}, {cache: true})
     include ./rightside.pug
-    include ./music.pug
+
+    if theme.nav_music.enable
+      include ./music.pug
     !=partial('includes/anzhiyu/console', {}, {cache:true})
     !=partial('includes/third-party/search/index', {}, {cache: true})
     !=partial('includes/anzhiyu/rightmenu', {}, {cache:true})

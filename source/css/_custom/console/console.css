@@ -68,7 +68,6 @@
 
 #console .console-card.tags {
   height: calc(100% - 172px);
-  pointer-events: none;
 }
 
 #console .console-mask {
@@ -389,10 +388,17 @@ body:has(#console.show) #nav-music #nav-music-hoverTips {
   margin-top: 10px;
   left: auto;
 }
-body:has(#console.show) #nav-music .aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-loaded {
+body:has(#console.show)
+  #nav-music
+  .aplayer
+  .aplayer-info
+  .aplayer-controller
+  .aplayer-bar-wrap
+  .aplayer-bar
+  .aplayer-loaded {
   display: block;
   border-radius: 10px;
-    height: 10px;
+  height: 10px;
 }
 body:has(#console.show) meting-js {
   height: 100%;
@@ -500,11 +506,18 @@ body:has(#console.show)
   border-radius: 10px;
 }
 body:has(#console.show)
-  #nav-music .aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-played .aplayer-thumb {
-    margin-top: -2px;
-    width: 15px;
-    height: 15px;
-  }
+  #nav-music
+  .aplayer
+  .aplayer-info
+  .aplayer-controller
+  .aplayer-bar-wrap
+  .aplayer-bar
+  .aplayer-played
+  .aplayer-thumb {
+  margin-top: -2px;
+  width: 15px;
+  height: 15px;
+}
 body:has(#console.show) #nav-music .aplayer .aplayer-lrc .aplayer-lrc-contents {
   margin-top: 80px;
 }
@@ -676,7 +689,7 @@ body:has(#console.show) #nav-music .aplayer .aplayer-lrc .aplayer-lrc-contents {
     transform: none !important;
     box-shadow: none;
   }
-  
+
   body:has(#console.show) #nav-music .aplayer {
     padding: 30px;
     border-radius: 0;

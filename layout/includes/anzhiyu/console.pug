@@ -14,12 +14,17 @@
   .console-card-group
     .console-card-group-left
       !=partial('includes/widget/card_newest_comment', {}, {cache: true})
- 
+    - const nav_music_enable = theme.nav_music.enable
     .console-card-group-right
       .console-card.tags(onclick='anzhiyu.hideConsole()')
         .card-content
-          .author-content-item-tips 音乐
-          span.author-content-item-title 灵魂的碰撞💥
+          if nav_music_enable
+            .author-content-item-tips 音乐
+            span.author-content-item-title 灵魂的碰撞💥
+          else 
+            .author-content-item-tips 兴趣点
+            span.author-content-item-title 寻找你感兴趣的领域
+            !=partial('includes/widget/card_tags', {}, {cache: true})
       .console-card.history(onclick='anzhiyu.hideConsole()')
         .item-headline
           i.fas.fa-archive

@@ -94,8 +94,8 @@ div
     script(charset="UTF-8" id="LA_COLLECT" src="https://sdk.51.la/js-sdk-pro.min.js")
     script(src="https://sdk.51.la/perf/js-sdk-perf.min.js" crossorigin="anonymous")
     script.
-      LA.init({id:theme.LA.ck,ck: theme.LA.ck})
-      new LingQue.Monitor().init({id: theme.LA.LingQueMonitorID, sendSuspicious:true});
+      LA.init({id: #{theme.LA.ck},ck: #{theme.LA.ck}})
+      new LingQue.Monitor().init({id: #{theme.LA.LingQueMonitorID}, sendSuspicious:true});
 
   != fragment_cache('injectBottom', function(){return injectHtml(theme.inject.bottom)})
 

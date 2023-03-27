@@ -138,6 +138,13 @@ window.onkeydown = function (e) {
   123 === e.keyCode && btf.snackbarShow("开发者模式已打开，请遵循GPL协议", !1);
 };
 
+//首页大卡片恢复显示
+document.querySelector(".topGroup").addEventListener("mouseleave", function () {
+  document.getElementById("todayCard").classList.remove("hide");
+  document.getElementById("todayCard").style.zIndex = 1;
+  // console.log('卡片停止悬浮');
+});
+
 // 跳转开往
 function totraveling() {
   btf.snackbarShow("即将跳转到「开往」项目的成员博客，不保证跳转网站的安全性和可用性", !1, 5000);

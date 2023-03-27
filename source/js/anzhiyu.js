@@ -463,6 +463,13 @@ var anzhiyu = {
     }
     anzhiyu.changeMusicBg(false);
   },
+  //隐藏今日推荐
+  hideTodayCard: function () {
+    if (document.getElementById("todayCard")) {
+      document.getElementById("todayCard").classList.add("hide");
+    }
+  },
+
   // 监听音乐背景改变
   addEventListenerMusic: function () {
     const anMusicPage = document.getElementById("anMusic-page");

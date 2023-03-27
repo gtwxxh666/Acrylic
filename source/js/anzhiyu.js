@@ -578,6 +578,7 @@ var anzhiyu = {
   // 控制台音乐列表监听
   addEventListenerConsoleMusicList: function () {
     const navMusic = document.getElementById("nav-music");
+    if (!navMusic) return;
     navMusic.addEventListener("click", e => {
       const aplayerList = navMusic.querySelector(".aplayer-list");
       const listBtn = navMusic.querySelector(
@@ -614,7 +615,7 @@ var anzhiyu = {
     document.body.dataset.type = value; // 将value值赋值到body的type属性上
   },
   //匿名评论
-  addRandomCommentInfo: function() {
+  addRandomCommentInfo: function () {
     // 从形容词数组中随机取一个值
     const randomAdjective = adjectives[Math.floor(Math.random() * adjectives.length)];
 
@@ -625,35 +626,63 @@ var anzhiyu = {
     const name = `${randomAdjective}${randomName}`;
 
     function dr_js_autofill_commentinfos() {
-      var lauthor = ["#author","input[name='comname']","#inpName","input[name='author']","#ds-dialog-name","#name","input[name='nick']","#comment_author"],
-      lmail =["#mail","#email","input[name='commail']","#inpEmail","input[name='email']","#ds-dialog-email","input[name='mail']","#comment_email"],
-      lurl =["#url","input[name='comurl']","#inpHomePage","#ds-dialog-url","input[name='url']","input[name='website']","#website","input[name='link']","#comment_url"];
+      var lauthor = [
+          "#author",
+          "input[name='comname']",
+          "#inpName",
+          "input[name='author']",
+          "#ds-dialog-name",
+          "#name",
+          "input[name='nick']",
+          "#comment_author",
+        ],
+        lmail = [
+          "#mail",
+          "#email",
+          "input[name='commail']",
+          "#inpEmail",
+          "input[name='email']",
+          "#ds-dialog-email",
+          "input[name='mail']",
+          "#comment_email",
+        ],
+        lurl = [
+          "#url",
+          "input[name='comurl']",
+          "#inpHomePage",
+          "#ds-dialog-url",
+          "input[name='url']",
+          "input[name='website']",
+          "#website",
+          "input[name='link']",
+          "#comment_url",
+        ];
       for (var i = 0; i < lauthor.length; i++) {
-          var author = document.querySelector(lauthor[i]);
-          if (author != null) {
-              author.value = name;
-      author.dispatchEvent(new Event('input'));
-      author.dispatchEvent(new Event('change'));
-              break;
-          }
+        var author = document.querySelector(lauthor[i]);
+        if (author != null) {
+          author.value = name;
+          author.dispatchEvent(new Event("input"));
+          author.dispatchEvent(new Event("change"));
+          break;
+        }
       }
       for (var j = 0; j < lmail.length; j++) {
-          var mail = document.querySelector(lmail[j]);
-          if (mail != null) {
-              mail.value = 'visitor@anzhiy.cn';
-      mail.dispatchEvent(new Event('input'));
-      mail.dispatchEvent(new Event('change'));
-              break;
-          }
+        var mail = document.querySelector(lmail[j]);
+        if (mail != null) {
+          mail.value = "visitor@anzhiy.cn";
+          mail.dispatchEvent(new Event("input"));
+          mail.dispatchEvent(new Event("change"));
+          break;
+        }
       }
-      return ! 1;
+      return !1;
     }
 
     dr_js_autofill_commentinfos();
-    var input = document.getElementsByClassName('el-textarea__inner')[0];
+    var input = document.getElementsByClassName("el-textarea__inner")[0];
     input.focus();
-    input.setSelectionRange(-1,-1);
-  }
+    input.setSelectionRange(-1, -1);
+  },
 };
 
 var getTimeState = function () {

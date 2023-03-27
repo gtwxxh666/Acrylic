@@ -29,7 +29,7 @@ div
 
   //- 控制台打印信息
   if theme.console.enable
-    script(async rel="prefetch" src="https://npm.elemecdn.com/anzhiyu-blog-static@1.0.0/js/console/console.js")
+    != partial("includes/anzhiyu/log-js.pug", {}, { cache: true })
   
   //- 随机文章
   script(async src="/anzhiyu/random.js")
@@ -66,11 +66,6 @@ div
       != partial("includes/third-party/newest-comments/index", {}, { cache: true })
     else if (!is_post() && page.aside !== false)
       != partial("includes/third-party/newest-comments/index", {}, { cache: true })
-  script.
-    // 消除控制台打印
-    var HoldLog = console.log;
-    console.log = function () {};
-    let now1 = new Date();
   //- jquery
   script(src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js")
   //- 气泡效果

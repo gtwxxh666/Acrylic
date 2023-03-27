@@ -105,7 +105,6 @@ div#bannerGroup {
     align-content: space-between;
     width: calc(600px + 1.5rem);
     position: relative;
-    animation: slide-in 0.6s 0.1s backwards;
   }
   .topGroup .todayCard.hide {
     opacity: 0;
@@ -118,89 +117,133 @@ div#bannerGroup {
     background: var(--anzhiyu-secondbg);
     border-radius: 12px 12px 0 0;
   }
-  .topGroup .recent-post-item {
-    display: flex;
-    width: 200px;
+}
+
+.topGroup .recent-post-item {
+  display: flex;
+  width: 200px;
+  flex-direction: column;
+  align-items: flex-start;
+  background: var(--anzhiyu-card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  min-width: 200px;
+  height: 164px !important;
+  max-height: 164px;
+  border: var(--style-border-always);
+  transition: 0.3s;
+  position: relative;
+  box-shadow: var(--anzhiyu-shadow-border);
+  margin-left: 0.5rem;
+  margin-right: 0px;
+  margin-bottom: 0.5rem;
+}
+.topGroup .recent-post-item .post_cover {
+  width: 100%;
+}
+.topGroup .recent-post-item .post_cover a {
+  height: 100px;
+  overflow: hidden;
+  display: flex;
+}
+.topGroup span.recent-post-top-text {
+  position: absolute;
+  top: 0;
+  left: -40px;
+  display: flex;
+  z-index: 1;
+  background: var(--anzhiyu-theme);
+  color: var(--anzhiyu-white);
+  padding: 2px 8px;
+  font-size: 0.6rem;
+  border-radius: 12px 0 12px 0;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.topGroup .recent-post-item .post_cover img {
+  object-fit: cover;
+  width: 100%;
+  background: var(--anzhiyu-secondbg);
+  border-radius: 12px 12px 0 0;
+}
+.topGroup .recent-post-item .recent-post-info {
+  padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+  transition: 0.3s;
+}
+.topGroup .recent-post-item .recent-post-info .article-title {
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-height: 1.5;
+  justify-content: center;
+  align-items: flex-end;
+  align-content: center;
+  padding-top: 0.5rem;
+  font-weight: bold;
+  font-size: 1rem !important;
+  padding: 0 !important;
+}
+
+.topGroup .recent-post-item:hover .recent-post-top-text {
+  left: 0;
+}
+
+@media screen and (max-width: 1300px) {
+  #random-banner {
+    display: none;
+  }
+
+  .topGroup .todayCard {
+    background: #0e57d5;
+  }
+
+  div#bannerGroup {
+    display: flex !important;
+  }
+
+  .categoryGroup .categoryItem:nth-child(3) {
+    display: none;
+  }
+  .categoryGroup {
     flex-direction: column;
-    align-items: flex-start;
-    background: var(--anzhiyu-card-bg);
-    border-radius: 12px;
-    overflow: hidden;
+    height: 95%;
+  }
+  .topGroup {
+    display: flex;
+  }
+
+  .topGroup .todayCard {
+    display: none;
+  }
+
+  .swiper_container_card {
+    display: flex;
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+    flex-wrap: nowrap;
+    width: 100%;
+    overflow-x: scroll;
+  }
+
+  div#bannerGroup {
+    height: auto;
+  }
+  .categoryItem {
+    height: 48%;
     min-width: 200px;
-    height: 164px !important;
-    max-height: 164px;
-    border: var(--style-border-always);
-    transition: 0.3s;
-    position: relative;
-    box-shadow: var(--anzhiyu-shadow-border);
-    margin-left: 0.5rem;
-    margin-right: 0px;
-    margin-bottom: 0.5rem;
   }
-  .topGroup .recent-post-item .post_cover {
-    width: 100%;
+  .categoryGroup {
+    display: flex !important;
   }
-  .topGroup .recent-post-item .post_cover a {
-    height: 100px;
-    overflow: hidden;
-    display: flex;
-  }
-  .topGroup span.recent-post-top-text {
-    position: absolute;
-    top: 0;
-    left: -40px;
-    display: flex;
-    z-index: 1;
-    background: var(--anzhiyu-theme);
-    color: var(--anzhiyu-white);
-    padding: 2px 8px;
-    font-size: 0.6rem;
-    border-radius: 12px 0 12px 0;
-    transition: 0.3s;
-    cursor: pointer;
-  }
-  .topGroup .recent-post-item .post_cover img {
-    object-fit: cover;
-    width: 100%;
-    background: var(--anzhiyu-secondbg);
-    border-radius: 12px 12px 0 0;
-  }
-  .topGroup .recent-post-item .recent-post-info {
-    padding: 0.3rem 0.5rem 0.3rem 0.5rem;
-    transition: 0.3s;
-  }
-  .topGroup .recent-post-item .recent-post-info .article-title {
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    line-height: 1.5;
-    justify-content: center;
-    align-items: flex-end;
-    align-content: center;
-    padding-top: 0.5rem;
-    font-weight: bold;
-    font-size: 1rem !important;
-    padding: 0 !important;
-  }
-
-  .topGroup .recent-post-item:hover .recent-post-top-text {
-    left: 0;
+  #bbTimeList {
+    margin: 0 15px 20px;
+    max-width: 100%;
+    width: auto;
   }
 }
 
-.topGroup .todayCard {
-  background: #0e57d5;
-}
-
-@keyframes slide-in {
-  0% {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
+.swiper_container_card::-webkit-scrollbar {
+  display: none;
 }

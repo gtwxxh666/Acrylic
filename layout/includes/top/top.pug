@@ -67,7 +67,8 @@ if home_top_config.enable
           - let top_group_banner_title = theme.home_top.banner.title
           - let top_group_banner_image = theme.home_top.banner.image
           - let top_group_banner_link = url_for(theme.home_top.banner.link)
-          each item in top_group_list
+
+          each item, index in top_group_list.slice(0, 6)
             .recent-post-item
               .post_cover.left_radius
                 a(href=item.path, title=item.title)
@@ -82,7 +83,7 @@ if home_top_config.enable
             .todayCard-cover(style=`background: url(${top_group_banner_image}) no-repeat center /cover`)
             .banner-button-group
               .banner-button(onclick='event.stopPropagation();event.preventDefault();anzhiyu.hideTodayCard();')
-                i.fa-solid.fa-plus
+                i.fa-solid.fa-circle-plus
                 span.banner-button-text 更多推荐
         
         link(rel="stylesheet", href=theme.home_top.banner.top_group_banner_css)

@@ -1,5 +1,16 @@
 // 如果当前页有评论就执行函数
 if (document.getElementById("post-comment")) owoBig();
+
+function mouseleaveHomeCard() {
+  const topGroup = document.querySelector(".topGroup");
+  if (!topGroup) return;
+  //首页大卡片恢复显示
+  topGroup.addEventListener("mouseleave", function () {
+    document.getElementById("todayCard").classList.remove("hide");
+    document.getElementById("todayCard").style.zIndex = 1;
+  });
+}
+
 // 表情放大
 function owoBig() {
   let flag = 1, // 设置节流阀
@@ -137,13 +148,6 @@ function anzhiyuScrollFn() {
 window.onkeydown = function (e) {
   123 === e.keyCode && btf.snackbarShow("开发者模式已打开，请遵循GPL协议", !1);
 };
-
-//首页大卡片恢复显示
-document.querySelector(".topGroup").addEventListener("mouseleave", function () {
-  document.getElementById("todayCard").classList.remove("hide");
-  document.getElementById("todayCard").style.zIndex = 1;
-  // console.log('卡片停止悬浮');
-});
 
 // 跳转开往
 function totraveling() {

@@ -247,3 +247,8 @@ div#bannerGroup {
 .swiper_container_card::-webkit-scrollbar {
   display: none;
 }
+
+.topGroup .banner-button:hover {
+  background: var(--anzhiyu-theme);
+  color: var(--anzhiyu-white);
+}

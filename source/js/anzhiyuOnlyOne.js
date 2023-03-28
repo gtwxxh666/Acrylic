@@ -92,8 +92,8 @@ var adjectives = [
   "有逻辑思维的",
   "有创新能力的",
   "有专业素养的",
-  "有商业头脑的"
-]
+  "有商业头脑的",
+];
 
 var vegetablesAndFruits = [
   "萝卜",

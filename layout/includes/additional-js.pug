@@ -80,7 +80,8 @@ div
     != partial("includes/anzhiyu/title-js.pug", {}, { cache: true })
   //- 评论弹幕
   if theme.comment_barrage_config.enable
-    != partial("includes/anzhiyu/commentBarrage-js.pug", {}, { cache: true })
+    .js-pjax
+      != partial("includes/anzhiyu/commentBarrage-js.pug", {}, { cache: true })
   //- 分类和标签界面新增导航栏
   script(data-pjax src="https://npm.elemecdn.com/anzhiyu-blog@2.1.1/js/catalog-bar/catalog-bar.js")
   //- 首页分类bar
@@ -88,14 +89,15 @@ div
   //- 即刻依赖waterfall
   script(async data-pjax src="https://npm.elemecdn.com/anzhiyu-blog@2.2.1/js/waterfall/waterfall.js")
   //- 右键菜单
-  script(async src="https://npm.elemecdn.com/anzhiyu-blog@2.2.2/js/rightmenu/rightmenu.js")
+  script(async src="https://npm.elemecdn.com/anzhiyu-blog-static@1.0.2/js/rightmenu/rightmenu.js")
   //- 51la统计&灵雀统计
   if (theme.LA.enable)
     script(charset="UTF-8" id="LA_COLLECT" src="https://sdk.51.la/js-sdk-pro.min.js")
     script(src="https://sdk.51.la/perf/js-sdk-perf.min.js" crossorigin="anonymous")
+    - const ck = theme.LA.ck
     script.
-      LA.init({id: #{theme.LA.ck},ck: #{theme.LA.ck}})
-      new LingQue.Monitor().init({id: #{theme.LA.LingQueMonitorID}, sendSuspicious:true});
+      LA.init({id: "#{ck}", ck: "#{ck}"});
+      new LingQue.Monitor().init({id: "#{theme.LA.LingQueMonitorID}", sendSuspicious:true});
 
   != fragment_cache('injectBottom', function(){return injectHtml(theme.inject.bottom)})
 
@@ -111,9 +113,6 @@ div
 
   if theme.pjax.enable
     != partial("includes/third-party/pjax", {}, { cache: true })
-  
-  if theme.pwa.enable
-    !=partial('includes/third-party/pwanotice', {}, {cache: true})
 
   if theme.busuanzi.site_uv || theme.busuanzi.site_pv || theme.busuanzi.page_pv
     script(async data-pjax src='https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js')

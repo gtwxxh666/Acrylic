@@ -723,6 +723,7 @@ anzhiyu.setValueToBodyType();
 anzhiyu.getCustomPlayList();
 anzhiyu.addEventListenerConsoleMusicList(false);
 
+mouseleaveHomeCard();
 coverColor();
 anzhiyuScrollFn();
 listenToPageInputPress();

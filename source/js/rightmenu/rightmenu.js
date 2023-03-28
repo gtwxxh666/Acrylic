@@ -120,7 +120,7 @@ window.oncontextmenu = function (event) {
     }
     const navMusicEl = document.querySelector("#nav-music");
     //判断是否是音乐
-    if (navMusicEl.contains(event.target)) {
+    if (navMusicEl && navMusicEl.contains(event.target)) {
       pluginMode = true;
       $rightMenuMusicToggle.show();
       $rightMenuMusicBack.show();

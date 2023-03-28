@@ -1,4 +1,4 @@
-script(data-pjax).
+script.
   var commentBarrageConfig = {
     maxBarrage: #{theme.comment_barrage_config.maxBarrage},
     barrageTime: #{theme.comment_barrage_config.barrageTime},
@@ -102,7 +102,9 @@ script(data-pjax).
           <img class="barrageAvatar" src="https://cravatar.cn/avatar/${data.mailMd5}"/>
           <a class="comment-barrage-close" href="javascript:anzhiyu.switchCommentBarrage()"><i class="fa-solid fa-xmark"></i></a>
         </div>
-        <a class="barrageContent" href="#${data.id}">${data.comment}</a>
+        <a class="barrageContent" href="#${data.id}">
+          <object>${data.comment}</object>
+        </a>
       `;
     commentBarrageConfig.barrageTimer.push(barrage);
     commentBarrageConfig.dom.append(barrage);

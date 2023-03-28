@@ -20,6 +20,36 @@ menu:
   #   闲言碎语: /essay/ || fas fa-lightbulb-on
   #   随便逛逛: javascript:toRandomPost() || fas fa-shoe-prints
 
+# nav左侧菜单
+nav:
+  enable: true
+  menu:
+    - title: 网页
+      item:
+        - name: 个人主页
+          link: https://index.anzhiy.cn/
+          icon: https://index.anzhiy.cn/assets/home.svg
+        - name: 博客
+          link: https://anzhiy.cn/
+          icon: https://img02.anzhiy.cn/adminuploads/1/2022/09/05/6315ec9737ac4.png
+        - name: 云盘主页
+          link: https://www.cloud.anzhiy.cn/
+          icon: https://img02.anzhiy.cn/adminuploads/1/2022/09/15/63232b7d91d22.jpg
+        - name: 安知鱼图床
+          link: https://image.anzhiy.cn/
+          icon: https://image.anzhiy.cn/favicon.ico
+        - name: alist文件管理
+          link: https://pan.anzhiy.cn/
+          icon: https://cloud.anzhiy.cn/static/img/c192.png
+    - title: 项目
+      item:
+        - name: 安知鱼云盘
+          link: https://cloud.anzhiy.cn/
+          icon: https://img02.anzhiy.cn/adminuploads/1/2022/04/27/6268e7d9de532.png
+        - name: 德信官网
+          link: http://blgou.net/#/main/home
+          icon: https://img02.anzhiy.cn/adminuploads/1/2022/09/15/6322cd942dbd9.png
+
 # Code Blocks (代码相关)
 # --------------------------------------
 

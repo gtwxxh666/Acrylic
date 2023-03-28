@@ -4,34 +4,14 @@ nav#nav
     .back-home-button(tabindex='-1')
       i.back-home-button-icon.fas.fa-grip-vertical
       .back-menu-list-groups
-        .back-menu-list-group
-          .back-menu-list-title 网页
-          .back-menu-list
-            a.back-menu-item(href='https://index.anzhiy.cn/', title='前往个人主页', target='_blank', )
-              img.back-menu-item-icon(src='https://index.anzhiy.cn/assets/home.svg')
-              span.back-menu-item-text 个人主页
-            a.back-menu-item(href='/', title='前往博客主页', target='_blank', )
-              img.back-menu-item-icon(src='https://img02.anzhiy.cn/adminuploads/1/2022/09/05/6315ec9737ac4.png')
-              span.back-menu-item-text 博客
-            a.back-menu-item(href='https://www.cloud.anzhiy.cn/', title='前往云盘主页', target='_blank', )
-              img.back-menu-item-icon(src='https://img02.anzhiy.cn/adminuploads/1/2022/09/15/63232b7d91d22.jpg')
-              span.back-menu-item-text 云盘主页
-            a.back-menu-item(href='https://image.anzhiy.cn/', title='前往安知鱼图床', target='_blank')
-              img.back-menu-item-icon(src='https://image.anzhiy.cn/favicon.ico')
-              span.back-menu-item-text 安知鱼图床
-            a.back-menu-item(href='https://pan.anzhiy.cn/', title='前往alist文件管理', target='_blank')
-              img.back-menu-item-icon(src='https://cloud.anzhiy.cn/static/img/c192.png')
-              span.back-menu-item-text alist文件管理
-        .back-menu-list-group
-          .back-menu-list-title 项目
-          .back-menu-list
-            a.back-menu-item(href='https://cloud.anzhiy.cn/', title='前往安知鱼云盘', target='_blank', )
-              img.back-menu-item-icon(src='https://img02.anzhiy.cn/adminuploads/1/2022/04/27/6268e7d9de532.png')
-              span.back-menu-item-text 安知鱼云盘
-            a.back-menu-item(href='http://blgou.net/#/main/home', title='查看德信官网', target='_blank', rel='noopener nofollow', )
-              img.back-menu-item-icon(src='https://img02.anzhiy.cn/adminuploads/1/2022/09/15/6322cd942dbd9.png')
-              span.back-menu-item-text 德信官网
-
+        each group in theme.nav.menu
+          .back-menu-list-group
+            .back-menu-list-title= group.title
+            .back-menu-list
+              each item in group.item
+                a.back-menu-item(href=item.link, title=item.name, target='_blank')
+                  img.back-menu-item-icon(src=item.icon)
+                  span.back-menu-item-text= item.name
     a#site-name(href=url_for('/'))
       .title #[=config.title]
       i.fa-solid.fa-house

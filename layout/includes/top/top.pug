@@ -48,7 +48,7 @@ if home_top_config.enable
             .blog-slider__pagination.swiper-pagination-clickable.swiper-pagination-bullets
 
           #topPostGroup
-            - let top_group_list = sort_attr_post("top_group_list")
+            - let top_group_list = sort_attr_post("top_group_list").splice(0, 4)
             each item in top_group_list
               .top-group-list-item
                 .post_cover.left_radius
@@ -62,7 +62,7 @@ if home_top_config.enable
             .top-group-list-none
       else 
         .topGroup
-          - let top_group_list = sort_attr_post("top_group_list")
+          - let top_group_list = sort_attr_post("top_group_list").splice(0, 6)
           - let top_group_banner_tips = theme.home_top.banner.tips
           - let top_group_banner_title = theme.home_top.banner.title
           - let top_group_banner_image = theme.home_top.banner.image

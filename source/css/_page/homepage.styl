@@ -116,3 +116,8 @@
       & > .content
         @extend .limit-more-line
         -webkit-line-clamp: 2
+
+if hexo-config('home_top.swiper.enable') == true
+  div#bannerGroup
+    margin-right: 10px;
+    width: calc(51% - 10px) !important;

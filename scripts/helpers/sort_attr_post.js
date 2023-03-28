@@ -1,3 +1,11 @@
+/*
+ * @Description:
+ * @Author: 安知鱼
+ * @Email: anzhiyu-c@qq.com
+ * @Date: 2023-03-28 22:13:11
+ * @LastEditTime: 2023-03-28 22:32:03
+ * @LastEditors: 安知鱼
+ */
 hexo.extend.helper.register("sort_attr_post", function (type) {
   // 获取所有文章
   var posts_list = hexo.locals.get("posts").data;
@@ -20,13 +28,18 @@ hexo.extend.helper.register("sort_attr_post", function (type) {
   function sortNumberGroupList(a, b) {
     return a.top_group_index - b.top_group_index;
   }
-  if (top_group_list.length < 6 && top_group_list.length > 0) {
-    while (top_group_list.length < 6) {
-      top_group_list.push(top_group_list[top_group_list.length - 1]);
-    }
-  } else if (top_group_list.length === 0) {
-    top_group_list = Array(6).fill(swiper_list[swiper_list.length - 1]);
+  const swiper_enable = hexo.theme.config.home_top.swiper.enable;
+  const targetLength = swiper_enable ? 4 : 6;
+
+  if (top_group_list.length === 0) {
+    top_group_list = Array(targetLength).fill(swiper_list[swiper_list.length - 1]);
+  } else if (top_group_list.length < targetLength) {
+    top_group_list = [
+      ...top_group_list,
+      ...Array(targetLength - top_group_list.length).fill(top_group_list[top_group_list.length - 1]),
+    ];
   }
+
   swiper_list = swiper_list.sort(sortNumber);
   top_group_list = top_group_list.sort(sortNumberGroupList);
   // 排序反转，使得数字越大越靠前

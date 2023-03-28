@@ -14,8 +14,7 @@ a span.top-group-text {
 }
 
 div#bannerGroup {
-  width: calc(51% - 10px);
-  margin-right: 10px;
+  width: calc(100% - 600px - 2rem);
   height: 338px;
   display: flex;
   flex-direction: column;

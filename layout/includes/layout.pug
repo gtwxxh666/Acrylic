@@ -49,7 +49,7 @@ html(lang=config.language data-theme=theme.display_mode class=htmlClassHideAside
     !=partial('includes/sidebar', {}, {cache: true})
     include ./rightside.pug
 
-    if theme.nav_music.enable
+    if (theme.nav_music.enable || theme.nav_music.console_widescreen_music)
       include ./music.pug
     !=partial('includes/anzhiyu/console', {}, {cache:true})
     !=partial('includes/third-party/search/index', {}, {cache: true})

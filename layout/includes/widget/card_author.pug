@@ -2,8 +2,9 @@ if theme.aside.card_author.enable
   .card-widget.card-info
     .author-info-top 
       .card-info-avatar
-        a.avatar-img(href='/about')
-          img(src=url_for(theme.avatar.img) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'` alt="avatar")
+        if theme.aside.card_author.type === 1
+          a.avatar-img(href='/about')
+            img(src=url_for(theme.avatar.img) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'` alt="avatar")
         if theme.author_status.enable
           .author-status-box
             .author-status
@@ -13,17 +14,6 @@ if theme.aside.card_author.enable
     .author-info__sayhi#author-info__sayhi
     h1.author-info__name= config.author
     .author-info__description!= theme.aside.card_author.description || config.description
-
-    //- .card-info-data.site-data.is-center
-    //-   a(href=url_for(config.archive_dir) + '/')
-    //-     .headline= _p('aside.articles')
-    //-     .length-num= site.posts.length
-    //-   a(href=url_for(config.tag_dir) + '/')
-    //-     .headline= _p('aside.tags')
-    //-     .length-num= site.tags.length
-    //-   a(href=url_for(config.category_dir) + '/')
-    //-     .headline= _p('aside.categories') 
-    //-     .length-num= site.categories.length
 
     if theme.aside.card_author.button.enable
       .banner-button-group

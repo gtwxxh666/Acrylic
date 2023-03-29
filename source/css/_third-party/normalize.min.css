@@ -111,6 +111,9 @@ button::-moz-focus-inner {
   padding: 0;
 }
 
+img.fancybox__image {
+  border-radius: 0;
+}
 [type="button"]:-moz-focusring,
 [type="reset"]:-moz-focusring,
 [type="submit"]:-moz-focusring,

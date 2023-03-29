@@ -152,7 +152,7 @@ body[data-type="album_detail"] #page .page-title {
 }
 
 #album_detail .album-bottom .album-reply {
-  cursor: url(/img/x2.cur), auto !important;
+  cursor: pointer;
 }
 
 #album_detail .timeline ul li.album-item:hover {

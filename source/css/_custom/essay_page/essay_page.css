@@ -1,4 +1,4 @@
-body[data-type="essay"] #page{
+body[data-type="essay"] #page {
   border: 0;
   box-shadow: none !important;
   padding: 0 !important;
@@ -144,7 +144,7 @@ body[data-type="essay"] #web_bg {
 }
 
 #bber .bber-bottom .bber-reply {
-  cursor: url(/img/x2.cur), auto !important;
+  cursor: pointer !important;
 }
 
 #bber .timeline ul li.bber-item:hover {

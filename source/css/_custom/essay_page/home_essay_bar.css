@@ -45,14 +45,14 @@
   line-height: 22px;
   margin-right: 1rem;
   transition: all 0.3s ease 0s;
-  cursor: url(/img/x2.cur), auto !important;
+  cursor: pointer !important;
 }
 
 .bber-gotobb {
   line-height: 30px;
   margin-left: 1rem;
   transition: all 0.3s ease 0s;
-  cursor: url(/img/x2.cur), auto !important;
+  cursor: pointer;
 }
 
 #bber-talk .li-style {
@@ -64,7 +64,7 @@
   transition: 0.3s;
   font-weight: 700;
   margin: auto;
-  cursor: url(/img/x2.cur), auto !important;
+  cursor: pointer;
   white-space: nowrap;
 }
 

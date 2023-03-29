@@ -25,7 +25,6 @@ div.s-sticker {
   background-color: transparent !important;
 }
 .s-sticker div {
-  cursor: url("/img/x1.cur"), auto !important;
   color: var(--font-color) !important;
   font-weight: bold;
 }
@@ -112,9 +111,7 @@ body:has(.post-bg) #he-plugin-simple .s-sticker div {
   background-color: var(--anzhiyu-blue) !important;
   color: #fff !important;
 }
-.wv-v-v-forecast a {
-  cursor: url("/img/x1.cur"), auto !important;
-}
+
 .wv-top-button:hover {
   background-color: var(--anzhiyu-blue-hover) !important;
 }

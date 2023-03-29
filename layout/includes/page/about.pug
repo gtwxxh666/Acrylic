@@ -149,7 +149,7 @@ if site.data.about
 
       .author-content
         - let {game_tips, game_title, game_uid, game_bg} = item.game
-        .author-content-item.game-yuanshen(style=`background: url(${game_bg}) no-repeat top;`)
+        .author-content-item.game-yuanshen(style=`background: url(${game_bg}) top / cover no-repeat;`)
           .card-content
             .author-content-item-tips=game_tips
             span.author-content-item-title=game_title
@@ -172,13 +172,13 @@ if site.data.about
       .author-content
         - let {music_tips, music_title, music_link, music_bg} = item.music
         - let {like_tips, like_title, like_bottom, like_bg} = item.like
-        .author-content-item.like-technology(style=`background: url(${like_bg}) no-repeat;`)
+        .author-content-item.like-technology(style=`background: url(${like_bg}) top / cover no-repeat;`)
           .card-content
             .author-content-item-tips=like_tips
             span.author-content-item-title=like_title
             .content-bottom
               .tips=like_bottom
-        .author-content-item.like-music(style=`background: url(${music_bg}) no-repeat top;`)
+        .author-content-item.like-music(style=`background: url(${music_bg}) top / cover no-repeat;`)
           .card-content
             .author-content-item-tips=music_tips
             span.author-content-item-title=music_title

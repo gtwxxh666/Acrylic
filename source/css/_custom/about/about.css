@@ -569,13 +569,11 @@ body[data-type="about"] #web_bg {
 }
 
 .author-content-item.like-technology {
-  background-size: cover;
   min-height: 230px;
   color: var(--anzhiyu-white);
 }
 
 .author-content-item.like-music {
-  background-size: cover;
   min-height: 400px;
   color: var(--anzhiyu-white);
   overflow: hidden;

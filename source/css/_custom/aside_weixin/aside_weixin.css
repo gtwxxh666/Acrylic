@@ -10,6 +10,7 @@
 }
 [data-theme="dark"] #aside-content .card-widget#card-wechat {
   background-color: #121121;
+  border: var(--style-border);
 }
 #aside-content .card-widget {
   border-radius: 12px;

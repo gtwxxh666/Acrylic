@@ -132,7 +132,7 @@ body:has(.post-bg) #he-plugin-simple .s-sticker div {
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 760px) {
   #he-plugin-simple {
     transition: 0.5s all !important;
     left: auto !important;

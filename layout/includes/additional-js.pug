@@ -77,8 +77,9 @@ div
   script(async src="/js/anzhiyuOnlyOne.js")
   script(data-pjax src="/js/anzhiyu.js")
   if theme.visitorMail.enable
+    - const mail = theme.visitorMail.mail
     script.
-      visitorMail = "#{theme.visitorMail.mail}";
+      var visitorMail = "#{mail}";
   //- 标题卖萌
   if theme.diytitle.enable
     != partial("includes/anzhiyu/title-js.pug", {}, { cache: true })

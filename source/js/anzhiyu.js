@@ -10,8 +10,6 @@ var musicVolume = 0.8;
 var changeMusicListFlag = false;
 // 当前默认播放列表
 var defaultPlayMusicList = [];
-// 访客邮箱
-var visitorMail = "";
 
 var anzhiyu = {
   //更改主题色

@@ -261,7 +261,7 @@ html.hide-aside .layout > div:first-child {
   height: fit-content;
   background: var(--anzhiyu-card-bg);
   border-radius: 12px;
-  cursor: url("/img/x2.cur"), auto;
+  cursor: pointer;
   border: var(--style-border);
 }
 /* 移动端容器padding */

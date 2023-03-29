@@ -10,7 +10,7 @@
   - let offduty_description = theme.footer.runtime.offduty_description
   if theme.footer.runtime.enable
     #workboard
-      img(src="#{offduty_img}", alt="#{offduty_description}", title="#{offduty_description}", class="workSituationImg boardsign")
+      img(src=`${offduty_img}`, alt=`${offduty_description}`, title=`${offduty_description}`, class="workSituationImg boardsign")
       #runtimeTextTip
   if theme.footer.bdageitem
     p#ghbdages

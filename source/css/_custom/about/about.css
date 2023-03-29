@@ -373,6 +373,7 @@ body[data-type="about"] #web_bg {
   display: flex;
   flex-direction: column;
   margin: 0.5rem 2rem 0.5rem 0;
+  min-width: 120px;
 }
 .author-content-item.selfInfo .selfInfo-title {
   opacity: 0.8;
@@ -469,7 +470,6 @@ body[data-type="about"] #web_bg {
   transition: 2s ease-in-out;
 }
 .author-content-item.game-yuanshen {
-  background: url(https://img02.anzhiy.cn/adminuploads/1/2022/12/19/63a079ca63c8a.webp) no-repeat top;
   background-size: cover;
   min-height: 300px;
   overflow: hidden;
@@ -569,14 +569,12 @@ body[data-type="about"] #web_bg {
 }
 
 .author-content-item.like-technology {
-  background: url(https://img02.anzhiy.cn/adminuploads/1/2022/09/24/632f0dd8f33c6.webp) no-repeat;
   background-size: cover;
   min-height: 230px;
   color: var(--anzhiyu-white);
 }
 
 .author-content-item.like-music {
-  background: url(https://p2.music.126.net/Mrg1i7DwcwjWBvQPIMt_Mg==/79164837213438.jpg) no-repeat top;
   background-size: cover;
   min-height: 400px;
   color: var(--anzhiyu-white);

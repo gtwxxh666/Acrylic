@@ -1,337 +1,263 @@
-#about-page
-  .author-box
-    .author-img
-      img.no-lightbox(src='https://img02.anzhiy.cn/adminuploads/1/2022/09/15/63232b7d91d22.jpg')
-    .image-dot
-  p.p.center.logo.large 关于我
-  p.p.center.small 生活明朗，万物可爱✨
-  .author-content
-    .author-content-item.myInfoAndSayHello
-      .title1 你好，很高兴认识你👋
-      .title2
-        | 我叫 
-        span.inline-word 陈志伟
-      .title1
-        | 是一名 前端工程师、学生、独立开发者、 
-        span.inline-word 博主
-    .aboutsiteTips.author-content-item
-      .author-content-item-tips 追求
-      h2
-        | 源于
-        br
-        | 热爱而去 
-        span.inline-word 感受
-        .mask
-          span.first-tips 学习
-          |  
-          span 生活
-          |  
-          span(data-up) 程序
-          |  
-          span(data-show) 体验
-  
-  .hello-about
-    .cursor(style='translate:none;rotate:none;scale:none;transform:translate(721px,180px)')
-    .shapes
-      .shape.shape-1(style='translate:none;rotate:none;scale:none;transform:translate(721px,180px)')
-      .shape.shape-2(style='translate:none;rotate:none;scale:none;transform:translate(721px,180px)')
-      .shape.shape-3(style='translate:none;rotate:none;scale:none;transform:translate(721px,180px)')
-    .content
-      h1 Hello there!
-  
-  .author-content
-    .author-content-item.skills
-      .card-content
-        .author-content-item-tips 技能
-        span.author-content-item-title 开启创造力
-        .skills-style-group
-          include ../anzhiyu/tags-group-all.pug
-          if site.data.creativity
-            .skills-list
-              each i in site.data.creativity
-                each item, index in i.creativity_list
-                  .skill-info
-                    .skill-icon(style=`background: ${item.color}`)
-                      img.no-lightbox(title=item.name, src=item.icon)
-                    .skill-name
-                      span=item.name 
-              .etc ...
-    .author-content-item.careers
-      .card-content
-        .author-content-item-tips 生涯
-        span.author-content-item-title 无限进步
-        .careers-group
-          .careers-item
-            .circle(style='background:#357ef5')
-            .name EDU,软件工程专业
-        img.author-content-img.no-lightbox(alt='生涯', src='https://img02.anzhiy.cn/adminuploads/1/2022/09/26/6330e9bcc39cc.png')
-  
-  .author-content
-    .about-statistic.author-content-item
-      .card-content
-        .author-content-item-tips 数据
-        span.author-content-item-title 访问统计
-        #statistic
-        .post-tips
-          | 统计信息来自 
-          a(href='https://invite.51.la/1NzKqTeb?target=V6', target='_blank', rel='noopener nofollow') 51la网站统计
-        .banner-button-group
-          a.banner-button(onclick='pjax.loadUrl("/archives/")')
-            i.fas.fa-circle-arrow-up-right
+if site.data.about
+  - let aboutData = site.data.about
+  each item in aboutData
+    - let subtitle = item.subtitle || config.subtitle
+    - let avatarImg = item.avatarImg || theme.avatar.img
+    - let aboutName = item.name || theme.author
+    - let aboutDescription = item.description || config.description
+    - let helloAbout = item.helloAbout
+    - let skillsTips = item.skillsTips
+    - let careers = item.careers
+    #about-page
+      .author-box
+        .author-img
+          img.no-lightbox(src=url_for(avatarImg) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'` alt="avatar")
+        .image-dot
+      p.p.center.logo.large 关于我
+      p.p.center.small=subtitle
+      .author-content
+        .author-content-item.myInfoAndSayHello
+          .title1 你好，很高兴认识你👋
+          .title2
+            | 我叫 
+            span.inline-word=aboutName
+          .title1=aboutDescription
+        .aboutsiteTips.author-content-item
+          - let { tips, title1, title2, word } = item.aboutsiteTips
+          .author-content-item-tips= tips
+          h2
+            = title1
+            br
+            = title2
+            .mask
+              each wordItem, index in word
+                if index < word.length - 2
+                  span(class=(index === 0 ? 'first-tips' : ''))= wordItem
+              span(data-up)= word[word.length - 2]
+              |  
+              span(data-show)= word[word.length - 1]
+      
+      .hello-about
+        .cursor(style='translate:none;rotate:none;scale:none;transform:translate(721px,180px)')
+        .shapes
+          .shape.shape-1(style='translate:none;rotate:none;scale:none;transform:translate(721px,180px)')
+          .shape.shape-2(style='translate:none;rotate:none;scale:none;transform:translate(721px,180px)')
+          .shape.shape-3(style='translate:none;rotate:none;scale:none;transform:translate(721px,180px)')
+        .content
+          h1=helloAbout
+      
+      .author-content
+        .author-content-item.skills
+          .card-content
+            .author-content-item-tips=skillsTips.tips
+            span.author-content-item-title=skillsTips.title
+            .skills-style-group
+              include ../anzhiyu/tags-group-all.pug
+              if site.data.creativity
+                .skills-list
+                  each i in site.data.creativity
+                    each item, index in i.creativity_list
+                      .skill-info
+                        .skill-icon(style=`background: ${item.color}`)
+                          img.no-lightbox(title=item.name, src=item.icon)
+                        .skill-name
+                          span=item.name 
+                  .etc ...
+        .author-content-item.careers
+          .card-content
+            .author-content-item-tips=careers.tips
+            span.author-content-item-title=careers.title
+            .careers-group
+              .careers-item
+                .circle(style='background:#357ef5')
+                each i in careers.item
+                  .name=i
+            img.author-content-img.no-lightbox(alt=careers.tips, src=url_for(careers.img) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'`)
+      
+      .author-content
+        if theme.LA.enable
+          .about-statistic.author-content-item
+            .card-content
+              .author-content-item-tips 数据
+              span.author-content-item-title 访问统计
+              #statistic
+              .post-tips
+                | 统计信息来自 
+                a(href='https://invite.51.la/1NzKqTeb?target=V6', target='_blank', rel='noopener nofollow') 51la网站统计
+              .banner-button-group
+                - let link = item.statistic.link
+                - let text = item.statistic.text
+                a.banner-button(onclick=`pjax.loadUrl("${link}")`)
+                  i.fas.fa-circle-arrow-up-right
+                  |  
+                  span.banner-button-text=text
+        .author-content-item-group.column.mapAndInfo
+          .author-content-item.map.single
+            - let mapTitle = item.map.title
+            - let mapStrengthenTitle = item.map.StrengthenTitle
+            span.map-title=mapTitle
+              b=mapStrengthenTitle
+          .author-content-item.selfInfo.single
+            - let { selfInfoTips1, selfInfoContentYear, selfInfoTips2, selfInfoContent2, selfInfoTips3, selfInfoContent3 } = item.selfInfo
+            div
+              span.selfInfo-title=selfInfoTips1
+              |  
+              span.selfInfo-content#selfInfo-content-year(style='color:#43a6c6')=selfInfoContentYear
+            div
+              span.selfInfo-title=selfInfoTips2
+              |  
+              span.selfInfo-content(style='color:#c69043')=selfInfoContent2
+            div
+              span.selfInfo-title=selfInfoTips3
+              |  
+              span.selfInfo-content(style='color:#b04fe6')=selfInfoContent3
+      
+      .author-content
+        .author-content-item.personalities
+          - let {author_name, personality_type, photo_url, personality_img} = item.personalities
+          .author-content-item-tips 性格
+          span.author-content-item-title= author_name
+          .title2(style='color:#ac899c')= personality_type
+          .post-tips
+            | 在 
+            a(href='https://www.16personalities.com/', target='_blank', rel='noopener nofollow') 16personalities
+            |  了解更多关于 
+            a(target='_blank', rel='noopener external nofollow', href='https://www.16personalities.com/ch/esfj-%E4%BA%BA%E6%A0%BC')= author_name
+          .image
+            img.no-lightbox(src=url_for(personality_img), alt='人格')
+        .author-content-item.myphoto
+          img.author-content-img.no-lightbox(alt='自拍', src=url_for(photo_url))
+      
+      .author-content
+        .author-content-item.maxim
+          - let {maxim_tips, maxim_top, maxim_bottom} = item.maxim
+          .author-content-item-tips=maxim_tips
+          span.maxim-title
+            span(style='opacity:.6;margin-bottom:8px')=maxim_top
             |  
-            span.banner-button-text 文章隧道
-    .author-content-item-group.column.mapAndInfo
-      .author-content-item.map.single
-        span.map-title
-          | 我现在住在 
-          b 中国，长沙市
-      .author-content-item.selfInfo.single
-        div
-          span.selfInfo-title 生于
-          |  
-          span.selfInfo-content#selfInfo-content-year(style='color:#43a6c6') 2002
-        div
-          span.selfInfo-title 湖南信息学院
-          |  
-          span.selfInfo-content(style='color:#c69043') 软件工程
-        div
-          span.selfInfo-title 现在职业
-          |  
-          span.selfInfo-content(style='color:#b04fe6') 大三学生👨‍🎓
-  
-  .author-content
-    .author-content-item.personalities
-      .author-content-item-tips 性格
-      span.author-content-item-title 执政官
-      .title2(style='color:#ac899c') ESFJ-A
-      .post-tips
-        | 在 
-        a(href='https://www.16personalities.com/', target='_blank', rel='noopener nofollow') 16personalities
-        |  了解更多关于 
-        a(target='_blank', rel='noopener external nofollow', href='https://www.16personalities.com/ch/esfj-%E4%BA%BA%E6%A0%BC') 执政官
-      .image
-        img.no-lightbox(src='https://npm.elemecdn.com/anzhiyu-blog@2.0.8/img/svg/ESFJ-A.svg')
-    .author-content-item.myphoto
-      img.author-content-img.no-lightbox(alt='自拍', src='https://img02.anzhiy.cn/adminuploads/1/2022/09/24/632e9643611ec.jpg')
-  
-  .author-content
-    .author-content-item.maxim
-      .author-content-item-tips 座右铭
-      span.maxim-title
-        span(style='opacity:.6;margin-bottom:8px') 生活明朗，
-        |  
-        span 万物可爱。
-    .author-content-item.buff
-      .card-content
-        .author-content-item-tips 特长
-        span.buff-title
-          span(style='opacity:.6;margin-bottom:8px')
-            | 脑回路新奇的 
-            span.inline-word 酸菜鱼
-          |  
-          span
-            | 二次元指数
-            span.inline-word MAX
-      .card-background-icon
-        i.fas.fa-dice-d20
+            span=maxim_bottom
+        .author-content-item.buff
+          .card-content
+          - let {buff_tips, buff_top, buff_bottom} = item.buff
+            .author-content-item-tips=buff_tips
+            span.buff-title
+              span(style='opacity:.6;margin-bottom:8px')=buff_top
+              |  
+              span=buff_bottom
+          .card-background-icon
+            i.fas.fa-dice-d20
 
-  .author-content
-    .author-content-item.game-yuanshen
-      .card-content
-        .author-content-item-tips 爱好游戏
-        span.author-content-item-title 原神
-        .content-bottom
-          .icon-group
-            .loading-bar(role='presentation', aria-hidden='true')
-          .tips.game-yuanshen-uid UID: 125766904
-    .author-content-item.comic-content
-      .card-content
-        .author-content-item-tips 爱好番剧
-        .author-content-item-title 追番
-        .comic-box
-          each item, index in site.data.comic
-            if item.comic_list
-              each i in item.comic_list
-                a.comic-item(href=i.href, target="_blank", title=i.name)
-                  .comic-item-cover
-                    img(src=i.cover, alt=i.name)
-  
-  .author-content
-    .author-content-item.like-technology
-      .card-content
-        .author-content-item-tips 关注偏好
-        span.author-content-item-title 数码科技
-        .content-bottom
-          .tips 手机、电脑软硬件
-    .author-content-item.like-music
-      .card-content
-        .author-content-item-tips 音乐偏好
-        span.author-content-item-title 许嵩、民谣、
-        |  
-        span.author-content-item-title 华语流行
-        .content-bottom
-          .tips 跟 安知鱼 一起欣赏更多音乐
-        .banner-button-group
-          a.banner-button(onclick='pjax.loadUrl("/music/")')
-            i.fas.fa-circle-arrow-up-right
-            |  
-            span.banner-button-text 更多推荐
+      .author-content
+        - let {game_tips, game_title, game_uid, game_bg} = item.game
+        .author-content-item.game-yuanshen(style=`background: url(${game_bg}) no-repeat top;`)
+          .card-content
+            .author-content-item-tips=game_tips
+            span.author-content-item-title=game_title
+            .content-bottom
+              .icon-group
+                .loading-bar(role='presentation', aria-hidden='true')
+              .tips.game-yuanshen-uid=game_uid
+        .author-content-item.comic-content
+          .card-content
+            - let {comic_tips, comic_title, comic_list} = item.comic
+            .author-content-item-tips=comic_tips
+            .author-content-item-title=comic_title
+            .comic-box
+              if comic_list
+                each i in comic_list
+                  a.comic-item(href=i.href, target="_blank", title=i.name)
+                    .comic-item-cover
+                      img(src=i.cover, alt=i.name)
+      
+      .author-content
+        - let {music_tips, music_title, music_link, music_bg} = item.music
+        - let {like_tips, like_title, like_bottom, like_bg} = item.like
+        .author-content-item.like-technology(style=`background: url(${like_bg}) no-repeat;`)
+          .card-content
+            .author-content-item-tips=like_tips
+            span.author-content-item-title=like_title
+            .content-bottom
+              .tips=like_bottom
+        .author-content-item.like-music(style=`background: url(${music_bg}) no-repeat top;`)
+          .card-content
+            .author-content-item-tips=music_tips
+            span.author-content-item-title=music_title
+            .content-bottom
+              .tips=`跟 ${aboutName} 一起欣赏更多音乐`
+            .banner-button-group
+              a.banner-button(onclick=`pjax.loadUrl("${music_link}")`)
+                i.fas.fa-circle-arrow-up-right
+                |  
+                span.banner-button-text 更多推荐
 
-  .author-content
-    .create-site-post.author-content-item.single
-      .author-content-item-tips 心路历程
-      | 欢迎来到我的博客 😝，这里是我记笔记的地方 🙌，目前就读于长沙
-      strong 湖南信息学院
-      | 的
-      strong 软件工程
-      | 专业，虽然有时候常常会忘记更新笔记，咕咕 ✋~ 但是记笔记真的是一个很棒的习惯 💪，能把学下来的知识进行积累，沉淀，有一句话说的好，能教给别人的知识，才是真正学会了的知识 ⚡ 每周我都会尽量进行更新 ☁️，如果没更的话，可能是我忘了，也可能是我在钻研某个东西的时候太入迷了
-      psw 肯定又熬夜了
-      del 同学们不要学我，老是熬夜会长痘
-      |  给大家推荐一部番：
-      .site-card-group
-        a.site-card(target='_blank', href='https://www.bilibili.com/bangumi/play/ss21542/?from=search&seid=10927182858100936967', data-title='紫罗兰的永恒花园')
-          .wrapper.cover
-            img.cover.fadeIn(src='https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/violet.jpg')
-          .info
-            img.flink-avatar(src='https://static.hdslb.com/images/favicon.ico', style='top: 19px')
-            span.site-title 紫罗兰的永恒花园
-      | 因为这部番，2018 年的一个夏天我看完以后心情久久不能释怀，为薇尔莉特与爱感到一种说不上来的味道，多年以后在看这部番，才明白原来这就是爱，喜欢这部番不仅仅是因为它制作的用心，不论是人物细节还是场景细节，不管是 op 还是 ed 都非常好听，最后的结局或许才是让我不能忘怀的原因，薇尔莉特，希望收到来自家人，朋友，恋人的那封 "信" ~
-      .checkbox.blue.checked
-        input(type='checkbox', checked)
-        p
-          | 致力于成为一个前端小姥🐷 
-          img.inline-img(src='https://cdn1.tianli0.top/gh/volantis-x/cdn-emoji/aru-l/0000.gif/' data-fancybox='gallery', style='display: inline;margin: 0 3px;height: 1.1em;vertical-align: text-bottom;')
-      .checkbox.blue.checked
-        input(type='checkbox', checked)
-        p
-          | 又菜又爱玩🎮 
-          kbd ctrl
-          |  + 
-          kbd C
-          | 、
-          kbd ctrl
-          |  + 
-          kbd V
-          | 高级CV工程师🏆
-      .checkbox.times.red.checked
-        input(type='checkbox', checked)
-        p 擅长PS、Pr、Ae、Au、Ai、Dw、An、Id等软件的安装与卸载🎃
-      .checkbox.times.red.checked
-        input(type='checkbox', checked)
-        p 精通Html、CSS、JavaScript、Vue、React、PHP、Java、Python、C、C++、C#、Go、TypeScript等单词的拼写🎲
-      .checkbox.times.red.checked
-        input(type='checkbox', checked)
-        p 熟悉Windows、Linux、Mac、Android、IOS等系统的开关机👻
-      span.p.h3 todoList
-      .checkbox.checked
-        input(type='checkbox', checked)
-        p 原生微信小程序
-      .checkbox.checked
-        input(type='checkbox', checked)
-        p vue3、vite、 pinia
-      .checkbox.checked
-        input(type='checkbox', checked)
-        p 重装文档重写
-      .checkbox
-        input(type='checkbox')
-        p Electron
-      .checkbox
-        input(type='checkbox')
-        p 操作系统
-      .checkbox.canvas
-        input(type='checkbox')
-        p svg绘制
-      .checkbox
-        input(type='checkbox')
-        p threeJS
-      .checkbox.Nuxt
-        input(type='checkbox')
-        p Next
-      .checkbox
-        input(type='checkbox')
-        p Flutter
-      .checkbox
-        input(type='checkbox')
-        p 智慧城市大前端
-      .checkbox
-        input(type='checkbox')
-        p react18系统学习
-      .checkbox
-        input(type='checkbox')
-        p 工业企业生产管理
-      .checkbox
-        input(type='checkbox')
-        p 语言的魅力
-    
-  .author-content
-    .author-content-item.single.reward
-      .author-content-item-tips 致谢
-      span.author-content-item-title 赞赏名单
-      .author-content-item-description 感谢因为有你们，让我更加有创作的动力。
-        each i in site.data.reward
-          - let rawData = [...i.reward_list]
-          .reward-list-all
-            - let reward_list_amount = i.reward_list.sort((a,b)=>b.amount -  a.amount)
-            each item, index in reward_list_amount
-              .reward-list-item
-                .reward-list-item-name=item.name
-                .reward-list-bottom-group
-                  if item.amount >= 50
-                    .reward-list-item-money(style='background:var(--anzhiyu-yellow)')=`¥${item.amount}`
-                  else 
-                    .reward-list-item-money=`¥${item.amount + (item.suffix ? item.suffix : "")}`
-                  .datatime.reward-list-item-time(datatime=item.datatime)=new Date(item.datatime).toISOString().slice(0, -14)
-          .reward-list-updateDate
-            | 最新更新时间： 
-            time.datatime.reward-list-updateDate-time(datatime=rawData[0].datatime)=new Date(rawData[0].datatime).toISOString().slice(0, -14)
-      .about-reward
-        #con
-        #TA-con(onclick="anzhiyu.rewardShowConsole()")
-          #text-con
-            #linght
-            #TA 为TA充电
-        #tube-con
-          svg(viewBox='0 0 1028 385', fill='none', xmlns='http://www.w3.org/2000/svg')
-            path(d='M1 77H234.226L307.006 24H790', stroke='#e5e9ef', stroke-width='20')
-            path(d='M0 140H233.035L329.72 71H1028', stroke='#e5e9ef', stroke-width='20')
-            path(d='M1 255H234.226L307.006 307H790', stroke='#e5e9ef', stroke-width='20')
-            path(d='M0 305H233.035L329.72 375H1028', stroke='#e5e9ef', stroke-width='20')
-            rect(y='186', width='236', height='24', fill='#e5e9ef')
-            ellipse(cx='790', cy='25.5', rx='25', ry='25.5', fill='#e5e9ef')
-            circle(r='14', transform='matrix(1 0 0 -1 790 25)', fill='white')
-            ellipse(cx='790', cy='307.5', rx='25', ry='25.5', fill='#e5e9ef')
-            circle(r='14', transform='matrix(1 0 0 -1 790 308)', fill='white')
-          #mask
-            svg(viewBox='0 0 1028 385', fill='none', xmlns='http://www.w3.org/2000/svg')
-              path(d='M1 77H234.226L307.006 24H790', stroke='#f25d8e', stroke-width='20')
-              path(d='M0 140H233.035L329.72 71H1028', stroke='#f25d8e', stroke-width='20')
-              path(d='M1 255H234.226L307.006 307H790', stroke='#f25d8e', stroke-width='20')
-              path(d='M0 305H233.035L329.72 375H1028', stroke='#f25d8e', stroke-width='20')
-              rect(y='186', width='236', height='24', fill='#f25d8e')
-              ellipse(cx='790', cy='25.5', rx='25', ry='25.5', fill='#f25d8e')
-              circle(r='14', transform='matrix(1 0 0 -1 790 25)', fill='white')
-              ellipse(cx='790', cy='307.5', rx='25', ry='25.5', fill='#f25d8e')
-              circle(r='14', transform='matrix(1 0 0 -1 790 308)', fill='white')
-          #orange-mask
-            svg(viewBox='0 0 1028 385', fill='none', xmlns='http://www.w3.org/2000/svg')
-              path(d='M1 77H234.226L307.006 24H790', stroke='#ffd52b', stroke-width='20')
-              path(d='M0 140H233.035L329.72 71H1028', stroke='#ffd52b', stroke-width='20')
-              path(d='M1 255H234.226L307.006 307H790', stroke='#ffd52b', stroke-width='20')
-              path(d='M0 305H233.035L329.72 375H1028', stroke='#ffd52b', stroke-width='20')
-              rect(y='186', width='236', height='24', fill='#ffd52b')
-              ellipse(cx='790', cy='25.5', rx='25', ry='25.5', fill='#ffd52b')
-              circle(r='14', transform='matrix(1 0 0 -1 790 25)', fill='white')
-              ellipse(cx='790', cy='307.5', rx='25', ry='25.5', fill='#ffd52b')
-              circle(r='14', transform='matrix(1 0 0 -1 790 308)', fill='white')
-          p#people
-            | 共
-            each i in site.data.reward
-              b=i.reward_list.length
-            else 
-              b 0
-            | 人
+      if item.extra
+        include ../anzhiyu/about-extra.pug
+        
+      .author-content
+        .author-content-item.single.reward
+          .author-content-item-tips 致谢
+          span.author-content-item-title 赞赏名单
+          .author-content-item-description 感谢因为有你们，让我更加有创作的动力。
+            - let rawData = item.reward_list
+            .reward-list-all
+              - let reward_list_amount = item.reward_list.sort((a,b)=>b.amount -  a.amount)
+              each item, index in reward_list_amount
+                .reward-list-item
+                  .reward-list-item-name=item.name
+                  .reward-list-bottom-group
+                    if item.amount >= 50
+                      .reward-list-item-money(style='background:var(--anzhiyu-yellow)')=`¥${item.amount}`
+                    else 
+                      .reward-list-item-money=`¥${item.amount + (item.suffix ? item.suffix : "")}`
+                    .datatime.reward-list-item-time(datatime=item.datatime)=new Date(item.datatime).toISOString().slice(0, -14)
+            .reward-list-updateDate
+              | 最新更新时间： 
+              time.datatime.reward-list-updateDate-time(datatime=rawData[0].datatime)=new Date(rawData[0].datatime).toISOString().slice(0, -14)
+          .about-reward
+            #con
+            #TA-con(onclick="anzhiyu.rewardShowConsole()")
+              #text-con
+                #linght
+                #TA 为TA充电
+            #tube-con
+              svg(viewBox='0 0 1028 385', fill='none', xmlns='http://www.w3.org/2000/svg')
+                path(d='M1 77H234.226L307.006 24H790', stroke='#e5e9ef', stroke-width='20')
+                path(d='M0 140H233.035L329.72 71H1028', stroke='#e5e9ef', stroke-width='20')
+                path(d='M1 255H234.226L307.006 307H790', stroke='#e5e9ef', stroke-width='20')
+                path(d='M0 305H233.035L329.72 375H1028', stroke='#e5e9ef', stroke-width='20')
+                rect(y='186', width='236', height='24', fill='#e5e9ef')
+                ellipse(cx='790', cy='25.5', rx='25', ry='25.5', fill='#e5e9ef')
+                circle(r='14', transform='matrix(1 0 0 -1 790 25)', fill='white')
+                ellipse(cx='790', cy='307.5', rx='25', ry='25.5', fill='#e5e9ef')
+                circle(r='14', transform='matrix(1 0 0 -1 790 308)', fill='white')
+              #mask
+                svg(viewBox='0 0 1028 385', fill='none', xmlns='http://www.w3.org/2000/svg')
+                  path(d='M1 77H234.226L307.006 24H790', stroke='#f25d8e', stroke-width='20')
+                  path(d='M0 140H233.035L329.72 71H1028', stroke='#f25d8e', stroke-width='20')
+                  path(d='M1 255H234.226L307.006 307H790', stroke='#f25d8e', stroke-width='20')
+                  path(d='M0 305H233.035L329.72 375H1028', stroke='#f25d8e', stroke-width='20')
+                  rect(y='186', width='236', height='24', fill='#f25d8e')
+                  ellipse(cx='790', cy='25.5', rx='25', ry='25.5', fill='#f25d8e')
+                  circle(r='14', transform='matrix(1 0 0 -1 790 25)', fill='white')
+                  ellipse(cx='790', cy='307.5', rx='25', ry='25.5', fill='#f25d8e')
+                  circle(r='14', transform='matrix(1 0 0 -1 790 308)', fill='white')
+              #orange-mask
+                svg(viewBox='0 0 1028 385', fill='none', xmlns='http://www.w3.org/2000/svg')
+                  path(d='M1 77H234.226L307.006 24H790', stroke='#ffd52b', stroke-width='20')
+                  path(d='M0 140H233.035L329.72 71H1028', stroke='#ffd52b', stroke-width='20')
+                  path(d='M1 255H234.226L307.006 307H790', stroke='#ffd52b', stroke-width='20')
+                  path(d='M0 305H233.035L329.72 375H1028', stroke='#ffd52b', stroke-width='20')
+                  rect(y='186', width='236', height='24', fill='#ffd52b')
+                  ellipse(cx='790', cy='25.5', rx='25', ry='25.5', fill='#ffd52b')
+                  circle(r='14', transform='matrix(1 0 0 -1 790 25)', fill='white')
+                  ellipse(cx='790', cy='307.5', rx='25', ry='25.5', fill='#ffd52b')
+                  circle(r='14', transform='matrix(1 0 0 -1 790 308)', fill='white')
+              p#people
+                | 共
+                b=item.reward_list.length
+                | 人
 
 
-script(src=url_for(theme.CDN.option.countup_js))
-script(src=url_for(theme.CDN.option.gsap_js))
-script(src=url_for(theme.CDN.option.about_js) defer)
+    script(src=url_for(theme.CDN.option.countup_js))
+    script(src=url_for(theme.CDN.option.gsap_js))
+    script(src=url_for(theme.CDN.option.about_js) defer)

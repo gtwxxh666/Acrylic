@@ -16,7 +16,7 @@
 }
 
 .nav-button {
-  cursor: url("/img/x2.cur"), auto;
+  cursor: pointer;
 }
 div#menus {
   display: flex;
@@ -322,7 +322,7 @@ center#name-container {
   background: var(--anzhiyu-secondbg);
 }
 #page-header #nav .back-home-button {
-  cursor: url("/img/x2.cur"), auto;
+  cursor: pointer;
   position: relative;
 }
 #page-header:not(.not-top-img) #nav .back-home-button {

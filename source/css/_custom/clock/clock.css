@@ -101,7 +101,7 @@ body:has(.post-bg) #he-plugin-simple .s-sticker div {
   height: 36px !important;
   border: none !important;
   border-radius: 5px !important;
-  cursor: url("/img/x2.cur"), auto;
+  cursor: pointer;
   transition: 0.25s;
 }
 .wv-top-select {

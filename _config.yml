@@ -1153,7 +1153,7 @@ CDN:
     # main_css:
     main: https://npm.elemecdn.com/anzhiyu-blog@2.2.1/js/main.js
     utils: https://npm.elemecdn.com/anzhiyu-blog@2.1.5/js/utils.js
-    translate: https://npm.elemecdn.com/anzhiyu-blog-static@1.0.3/js/tw_cn.js
+    translate: /js/tw_cn.js
     local_search: https://npm.elemecdn.com/anzhiyu-blog@2.1.2/js/search/local-search.js
     algolia_js: https://npm.elemecdn.com/anzhiyu-blog@2.1.5/js/search/algolia.js
     # algolia_search_v4:

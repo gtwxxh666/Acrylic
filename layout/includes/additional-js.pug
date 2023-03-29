@@ -76,6 +76,9 @@ div
   script(data-pjax src="/js/anzhiyufunction.js")
   script(async src="/js/anzhiyuOnlyOne.js")
   script(data-pjax src="/js/anzhiyu.js")
+  if theme.visitorMail.enable
+    script.
+      visitorMail = "#{theme.visitorMail.mail}";
   //- 标题卖萌
   if theme.diytitle.enable
     != partial("includes/anzhiyu/title-js.pug", {}, { cache: true })
@@ -90,7 +93,7 @@ div
   //- 即刻依赖waterfall
   script(async data-pjax src="https://npm.elemecdn.com/anzhiyu-blog@2.2.1/js/waterfall/waterfall.js")
   //- 右键菜单
-  script(async src="https://npm.elemecdn.com/anzhiyu-blog-static@1.0.2/js/rightmenu/rightmenu.js")
+  script(async src="/js/rightmenu/rightmenu.js")
   //- 51la统计&灵雀统计
   if (theme.LA.enable)
     script(charset="UTF-8" id="LA_COLLECT" src="https://sdk.51.la/js-sdk-pro.min.js")

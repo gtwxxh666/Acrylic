@@ -10,6 +10,8 @@ var musicVolume = 0.8;
 var changeMusicListFlag = false;
 // 当前默认播放列表
 var defaultPlayMusicList = [];
+// 访客邮箱
+var visitorMail = "";
 
 var anzhiyu = {
   //更改主题色
@@ -676,7 +678,7 @@ var anzhiyu = {
       for (var j = 0; j < lmail.length; j++) {
         var mail = document.querySelector(lmail[j]);
         if (mail != null) {
-          mail.value = "visitor@anzhiy.cn";
+          mail.value = visitorMail;
           mail.dispatchEvent(new Event("input"));
           mail.dispatchEvent(new Event("change"));
           break;

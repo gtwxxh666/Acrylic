@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
   function translatePage() {
+    if (rm) rm.hideRightMenu();
     if (targetEncoding === 1) {
       currentEncoding = 1;
       targetEncoding = 2;
@@ -90,6 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   function translateInitialization() {
     translateButtonObject = document.getElementById("translateLink");
+    const translateRightMenuButtonObject = document.getElementById("menu-translate");
     if (translateButtonObject) {
       if (currentEncoding !== targetEncoding) {
         setTimeout(translateBody, translateDelay);
@@ -97,6 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
         else translateButtonObject.innerHTML = msgToTraditionalChinese;
       }
       translateButtonObject.addEventListener("click", translatePage, false);
+      translateRightMenuButtonObject.addEventListener("click", translatePage, false);
     }
   }
   translateInitialization();

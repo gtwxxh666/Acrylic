@@ -220,10 +220,11 @@
   border: var(--style-border-always);
   transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
-#page .el-textarea__inner {
-  background: var(--anzhiyu-card-bg) !important;
+
+#body-wrap.page .el-input__inner {
+  background: var(--anzhiyu-card-bg);
   box-shadow: var(--anzhiyu-shadow-border);
-  color: var(--anzhiyu-fontcolor) !important;
+  color: var(--anzhiyu-fontcolor);
 }
 
 #twikoo.twikoo .el-input__inner:focus,
@@ -273,10 +274,6 @@
   max-height: 500px;
 }
 
-.page .el-input__inner {
-  background: var(--anzhiyu-card-bg) !important;
-}
-
 .tk-comments .tk-row-actions-start {
   position: relative;
   top: -56px;
@@ -317,7 +314,8 @@
   .tk-comments .tk-main .tk-submit .tk-row.actions {
     justify-content: center;
   }
-  .tk-comments .tk-main button.el-button.tk-send,.tk-comments .tk-main button.el-button.tk-cancel {
+  .tk-comments .tk-main button.el-button.tk-send,
+  .tk-comments .tk-main button.el-button.tk-cancel {
     width: 100%;
   }
 }

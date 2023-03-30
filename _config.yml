@@ -300,14 +300,14 @@ sharejs:
 # https://www.addtoany.com/
 addtoany:
   enable: false
-  item: facebook,twitter,wechat,sina_weibo,facebook_messenger,email,copy_link
+  item: facebook,twitter,wechat,sina_weibo,email,copy_link
 
 # Comments System
 # --------------------------------------
 
 comments:
   # Up to two comments system, the first will be shown as default
-  # Choose: Valine/Waline Comments/Twikoo/Artalk
+  # Choose: Valine/Waline/Twikoo/Artalk
   use: Twikoo # Valine
   text: true # Display the comment name next to the button
   # lazyload: The comment system will be load when comment element enters the browser's viewport.
@@ -407,13 +407,6 @@ gitter:
 crisp:
   enable: false
   website_id:
-
-# messenger
-# https://developers.facebook.com/docs/messenger-platform/discovery/facebook-chat-plugin/
-messenger:
-  enable: false
-  pageID:
-  lang: zh_CN # Language en_US/zh_CN/zh_TW and so on
 
 # Footer Settings
 # --------------------------------------

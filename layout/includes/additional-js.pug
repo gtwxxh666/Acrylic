@@ -84,7 +84,7 @@ div
   if theme.diytitle.enable
     != partial("includes/anzhiyu/title-js.pug", {}, { cache: true })
   //- 评论弹幕
-  if theme.comment_barrage_config.enable
+  if theme.comment_barrage_config.enable && theme.comments.use == 'Twikoo'
     .js-pjax
       != partial("includes/anzhiyu/commentBarrage-js.pug", {}, { cache: true })
   //- 分类和标签界面新增导航栏
@@ -120,9 +120,7 @@ div
     != partial("includes/third-party/pjax", {}, { cache: true })
 
   if theme.busuanzi.site_uv || theme.busuanzi.site_pv || theme.busuanzi.page_pv
-    script(async data-pjax src='https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js')
-    //- script(async data-pjax src='https://busuanzi.icodeq.com/busuanzi.pure.mini.js')
-    //- script(async data-pjax src='https://npm.elemecdn.com/penndu@1.0.0/bsz.js')
+    script(async data-pjax src= theme.asset.busuanzi || '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js')
 
   if is_current("/")
     #greetingBox 

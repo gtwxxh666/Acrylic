@@ -723,9 +723,9 @@ aside:
 # busuanzi count for PV / UV in site
 # 访问人数
 busuanzi:
-  site_uv: true
-  site_pv: true
-  page_pv: true
+  site_uv: false
+  site_pv: false
+  page_pv: false
 
 # Time difference between publish date and now (网页运行时间)
 # Formal: Month/Day/Year Time or Year/Month/Day Time
@@ -1126,7 +1126,7 @@ CDN:
     # artalk_css:
     pace_js: https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/pace/1.2.4/pace.min.js
     # pace_default_css:
-
+    # busuanzi:
     # 打赏按钮投币效果
     coin_js: https://npm.elemecdn.com/anzhiyu-blog@1.1.6/js/coin.js
     coin_css: https://npm.elemecdn.com/anzhiyu-blog@2.0.7/css/coin/coin.css

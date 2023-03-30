@@ -19,5 +19,6 @@
   #random-post
   #hexo-circle-of-friends-root
 
-script(defer data-pjax src=url_for(theme.friends_vue.random_friends_post_js))
+if (theme.friends_vue.apiurl)
+  include ../anzhiyu/random-friends-post-js.pug
 script(defer data-pjax src=url_for(theme.friends_vue.vue_js))

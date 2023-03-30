@@ -661,7 +661,7 @@ preloader:
   # else all
   source: 3
   # pace theme (see https://codebyzach.github.io/pace/)
-  pace_css_url: /css/progress_bar/progress_bar.css
+  pace_css_url:
 
 # aside (侧边栏)
 # --------------------------------------
@@ -919,9 +919,9 @@ tag_plugins:
     anima: https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css #动画标签anima的依赖
     jquery: https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js #issues标签依赖
     issues: https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/issues.js #issues标签依赖
-    iconfont: https://npm.elemecdn.com/anzhiyu-blog@2.1.8/js/ali_font.js #参看https://akilar.top/posts/d2ebecef/
+    iconfont: https://npm.elemecdn.com/acrylic-static@1.0.0/ali_font.js #参看https://akilar.top/posts/d2ebecef/
     carousel: https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js
-    tag_plugins_css: /css/tag_plugins/tag_plugins.css
+    tag_plugins_css: https://npm.elemecdn.com/acrylic-static@1.0.0/tag_plugins/tag_plugins.css
 
 # wowjs
 # see https://www.npmjs.com/package/hexo-butterfly-wowjs
@@ -983,19 +983,19 @@ home_top:
   default_descr: 再怎么看我也不知道怎么描述它的啦！
   swiper:
     enable: false
-    swiper_css: https://npm.elemecdn.com/hexo-butterfly-swiper-anzhiyu@1.0.4/lib/swiper.min.css #swiper css依赖
-    swiper_js: https://npm.elemecdn.com/anzhiyu-blog@1.1.6/js/swiper.min.js #swiper js依赖
-    swiper_init: https://npm.elemecdn.com/hexo-butterfly-swiper-anzhiyu-pro@1.0.1/lib/swiper_init.js # swiper初始化方法
+    swiper_css: https://npm.elemecdn.com/acrylic-static@1.0.0/swiper/swiper.min.css #swiper css依赖
+    swiper_js: https://npm.elemecdn.com/acrylic-static@1.0.0/swiper/swiper.min.js #swiper js依赖
+    swiper_init: https://npm.elemecdn.com/acrylic-static@1.0.0/swiper/swiper_init.js # swiper初始化方法
   banner:
     tips: 新品主题
     title: Acrylic-AnZHiYu
     image: https://img02.anzhiy.cn/adminuploads/1/2023/03/27/64215d46a1ca6.webp
     link: https://anzhiy.cn/posts/220c.html
-    top_group_banner_css: /css/top_group_banner_css/top_group_banner_css.css
+    top_group_banner_css: https://npm.elemecdn.com/acrylic-static@1.0.0/top_group_banner_css/top_group_banner_css.css
 
 friends_vue:
   vue_js: https://npm.elemecdn.com/anzhiyu-blog-static@1.0.0/js/friends_vue/index.js
-  random_friends_post_js: /js/friends/random-friends-post.js
+  apiurl: https://friends.anzhiy.cn/ #twikoo地址
 
 # 黑色模式粒子效果canvas
 universe:
@@ -1078,17 +1078,17 @@ CDN:
 
   option:
     # main_css:
-    main: https://npm.elemecdn.com/anzhiyu-blog@2.2.1/js/main.js
-    utils: https://npm.elemecdn.com/anzhiyu-blog@2.1.5/js/utils.js
-    translate: /js/tw_cn.js
-    local_search: https://npm.elemecdn.com/anzhiyu-blog@2.1.2/js/search/local-search.js
-    algolia_js: https://npm.elemecdn.com/anzhiyu-blog@2.1.5/js/search/algolia.js
+    # main:
+    # utils:
+    # translate:
+    # local_search:
+    # algolia_js:
     # algolia_search_v4:
-    instantsearch_v4: https://npm.elemecdn.com/instantsearch.js@latest/dist/instantsearch.production.min.js
+    # instantsearch_v4:
     # pjax:
     # blueimp_md5:
     # valine:
-    twikoo: https://npm.elemecdn.com/twikoo@1.6.7/dist/twikoo.all.min.js
+    # twikoo:
     # waline_js:
     # waline_css:
     # sharejs:
@@ -1100,42 +1100,39 @@ CDN:
     # canvas_ribbon:
     # canvas_fluttering_ribbon:
     # canvas_nest:
-    lazyload: https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/vanilla-lazyload/17.3.1/lazyload.iife.min.js
-    instantpage: https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/instant.page/5.1.0/instantpage.min.js
-    typed: https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/typed.js/2.0.12/typed.min.js
+    # lazyload:
+    # instantpage:
+    # typed:
     # pangu:
-    fancybox_css_v4: https://npm.elemecdn.com/@fancyapps/ui@4.0.31/dist/fancybox.css
-    fancybox_v4: https://npm.elemecdn.com/@fancyapps/ui@latest/dist/fancybox.umd.js
-    medium_zoom: https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/medium-zoom/medium-zoom.min.js
-    snackbar_css: https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/node-snackbar/0.1.16/snackbar.min.css
-    snackbar: https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/node-snackbar/0.1.16/snackbar.min.js
+    # fancybox_css_v4:
+    # fancybox_v4:
+    # medium_zoom:
+    # snackbar_css:
+    # snackbar:
     # activate_power_mode:
     # fireworks:
     # click_heart:
     # ClickShowText:
-    fontawesomeV6: https://npm.elemecdn.com/anzhiyu-blog@2.1.0/fonts/fontawesome/css/all.min.css
+    # fontawesomeV6:
     # flickr_justified_gallery_js:
     # flickr_justified_gallery_css:
-    aplayer_css: https://pan.anzhiy.cn/d/anzhiyu/blog/css/APlayer.min.css?sign=9Axdhe5MrTn09bY8FtG6fu3fkcOVUZ3LFwcz2O_tZrY=:0
-    aplayer_js: https://npm.elemecdn.com/anzhiyu-blog-static@1.0.1/js/APlayer.min.js
-    meting_js: https://npm.elemecdn.com/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js
+    # aplayer_css:
+    # aplayer_js:
+    # meting_js:
     # prismjs_js:
     # prismjs_lineNumber_js:
     # prismjs_autoloader:
     # artalk_js:
     # artalk_css:
-    pace_js: https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/pace/1.2.4/pace.min.js
+    # pace_js:
     # pace_default_css:
+    # coin_js:
+    # coin_css:
+    # countup_js:
+    # gsap_js:
+    # about_js:
     # busuanzi:
-    # 打赏按钮投币效果
-    coin_js: https://npm.elemecdn.com/anzhiyu-blog@1.1.6/js/coin.js
-    coin_css: https://npm.elemecdn.com/anzhiyu-blog@2.0.7/css/coin/coin.css
-
-    # countupJS
-    countup_js: https://npm.elemecdn.com/anzhiyu-blog@2.1.5/js/countup.js
-
-    # Gsap
-    gsap_js: https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/gsap/3.9.1/gsap.min.js
-
-    # about
-    about_js: /js/about/about.js
+    # rightmenu:
+    # waterfall:
+    # categoryBar:
+    # catalog_bar:

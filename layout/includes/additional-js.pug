@@ -25,7 +25,7 @@ div
   //- 黑色模式粒子效果canvas
   if theme.universe.enable
     canvas(id="universe")
-    script(async src="https://cdn1.tianli0.top/npm/anzhiyu-blog@2.1.5/js/dark/dark.js")
+    script(async src="https://npm.elemecdn.com/acrylic-static@1.0.0/dark/dark.js")
 
   //- 控制台打印信息
   if theme.console.enable
@@ -71,7 +71,7 @@ div
   script(src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js")
   //- 气泡效果
   if theme.bubble.enable
-    script(async data-pjax src="/js/bubble/bubble.js")
+    script(async data-pjax src="https://npm.elemecdn.com/acrylic-static@1.0.0/bubble/bubble.js")
   //- 自定义js
   script(data-pjax src="/js/anzhiyufunction.js")
   script(async src="/js/anzhiyuOnlyOne.js")
@@ -87,14 +87,14 @@ div
   if theme.comment_barrage_config.enable && theme.comments.use == 'Twikoo'
     .js-pjax
       != partial("includes/anzhiyu/commentBarrage-js.pug", {}, { cache: true })
-  //- 分类和标签界面新增导航栏
-  script(data-pjax src="https://npm.elemecdn.com/anzhiyu-blog@2.1.1/js/catalog-bar/catalog-bar.js")
+  //- 分类和标签界面导航栏
+  script(data-pjax src=url_for(theme.asset.catalog_bar))
   //- 首页分类bar
-  script(async data-pjax src="https://npm.elemecdn.com/anzhiyu-blog@2.1.1/js/categoryBar/categoryBar.js")
+  script(async data-pjax src=url_for(theme.asset.categoryBar))
   //- 即刻依赖waterfall
-  script(async data-pjax src="https://npm.elemecdn.com/anzhiyu-blog@2.2.1/js/waterfall/waterfall.js")
+  script(async data-pjax src=url_for(theme.asset.waterfall))
   //- 右键菜单
-  script(async src="/js/rightmenu/rightmenu.js")
+  script(async src=url_for(theme.asset.rightmenu))
   //- 51la统计&灵雀统计
   if (theme.LA.enable)
     script(charset="UTF-8" id="LA_COLLECT" src="https://sdk.51.la/js-sdk-pro.min.js")

@@ -1,6 +1,6 @@
-if site.data.essay
+if site.data.essay && theme.essay.enable
   #essay_page
-    .author-content.author-content-item.essayPage.single
+    .author-content.author-content-item.essayPage.single(style = theme.essay.enable ? `background: url(${theme.essay.top_background}) left 28% / cover no-repeat;` : "")
       .card-content
         .author-content-item-tips 即刻短文
         span.author-content-item-title 咸鱼的日常生活。

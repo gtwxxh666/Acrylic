@@ -17,7 +17,7 @@ body[data-type="fcircle"] #page .page-title {
   display: none;
 }
 
-body[data-type="fcircle"] #page{
+body[data-type="fcircle"] #page {
   border: 0;
   box-shadow: none !important;
   padding: 0 !important;
@@ -29,9 +29,6 @@ body[data-type="fcircle"] #page{
 .fcircle_page .cf-article-avatar a:hover {
   background: none !important;
   color: var(--anzhiyu-fontcolor) !important;
-}
-.fcirclePage {
-  background: url(https://img02.anzhiy.cn/adminuploads/1/2022/08/21/630249e2df20f.jpg) left 28% / cover no-repeat !important;
 }
 /* 随机文章样式 */
 

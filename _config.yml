@@ -307,7 +307,7 @@ addtoany:
 
 comments:
   # Up to two comments system, the first will be shown as default
-  # Choose: Livere/Valine/Waline/Utterances/Facebook Comments/Twikoo/Giscus/Remark42/Artalk
+  # Choose: Livere/Valine/Waline/Facebook Comments/Twikoo/Giscus/Remark42/Artalk
   use: Twikoo # Valine
   text: true # Display the comment name next to the button
   # lazyload: The comment system will be load when comment element enters the browser's viewport.
@@ -356,16 +356,6 @@ waline:
   visitor: false
   option:
     - placeholder: 今天应该会收到少佐的信叭~<br>生活明朗，万物可爱
-
-# utterances
-# https://utteranc.es/
-utterances:
-  repo:
-  # Issue Mapping: pathname/url/title/og:title
-  issue_term: pathname
-  # Theme: github-light/github-dark/github-dark-orange/icy-dark/dark-blue/photon-dark
-  light_theme: github-light
-  dark_theme: photon-dark
 
 # Facebook Comments Plugin
 # https://developers.facebook.com/docs/plugins/comments/

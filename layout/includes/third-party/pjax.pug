@@ -7,10 +7,8 @@ if theme.pjax.exclude
 
 - let choose = theme.comments.use
 if choose
-  if theme.Open_Graph_meta && (choose.includes('Livere') || choose.includes('Utterances') || choose.includes('Giscus') || choose.includes('Twikoo'))
+  if theme.Open_Graph_meta && (choose.includes('Twikoo'))
     - pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]', 'meta[property="og:type"]', 'meta[property="og:site_name"]', 'meta[property="og:description"]')
-  if choose.includes('Utterances') || choose.includes('Giscus')
-    - pjaxSelectors.unshift('link[rel="canonical"]')
 
 script(src=url_for(theme.asset.pjax))
 script.

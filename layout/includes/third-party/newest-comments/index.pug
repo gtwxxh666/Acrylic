@@ -9,10 +9,6 @@ if use
       include ./waline.pug
     when 'Twikoo'
       include ./twikoo-comment.pug
-    when 'Gitalk'
-      - let { repo,owner } = theme.gitalk
-      - userRepo = owner + '/' + repo
-      include ./github-issues.pug
     when 'Utterances'
       - userRepo = theme.utterances.repo
       include ./github-issues.pug

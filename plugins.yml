@@ -10,14 +10,6 @@ pjax:
   name: pjax
   file: pjax.min.js
   version: 0.2.8
-gitalk:
-  name: gitalk
-  file: dist/gitalk.min.js
-  version: 1.7.2
-gitalk_css:
-  name: gitalk
-  file: dist/gitalk.css
-  version: 1.7.2
 blueimp_md5:
   name: blueimp-md5
   file: js/md5.min.js

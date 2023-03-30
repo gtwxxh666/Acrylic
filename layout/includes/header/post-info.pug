@@ -110,11 +110,6 @@
               a(href=url_for(page.path) + '#post-comment')
                 span.waline-comment-count(data-path=url_for(page.path))
                   i.fa-solid.fa-spinner.fa-spin
-          when 'Gitalk'
-            +countBlock
-              a(href=url_for(page.path) + '#post-comment')
-                span.gitalk-comment-count
-                  i.fa-solid.fa-spinner.fa-spin
           when 'Twikoo'
             +countBlock
               a(href=url_for(page.path) + '#post-comment')

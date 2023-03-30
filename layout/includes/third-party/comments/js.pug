@@ -4,8 +4,6 @@ each name in theme.comments.use
       !=partial('includes/third-party/comments/valine', {}, {cache: true})
     when 'Livere'
       !=partial('includes/third-party/comments/livere', {}, {cache: true})
-    when 'Gitalk'
-      include ./gitalk.pug
     when 'Utterances'
       !=partial('includes/third-party/comments/utterances', {}, {cache: true})
     when 'Twikoo'

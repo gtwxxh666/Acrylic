@@ -307,28 +307,14 @@ addtoany:
 
 comments:
   # Up to two comments system, the first will be shown as default
-  # Choose: Disqus/Disqusjs/Livere/Gitalk/Valine/Waline/Utterances/Facebook Comments/Twikoo/Giscus/Remark42/Artalk
-  use: Twikoo # Valine,Disqus
+  # Choose: Livere/Gitalk/Valine/Waline/Utterances/Facebook Comments/Twikoo/Giscus/Remark42/Artalk
+  use: Twikoo # Valine
   text: true # Display the comment name next to the button
   # lazyload: The comment system will be load when comment element enters the browser's viewport.
   # If you set it to true, the comment count will be invalid
   lazyload: false
   count: false # Display comment count in post's top_img
   card_post_count: false # Display comment count in Home Page
-
-# disqus
-# https://disqus.com/
-disqus:
-  shortname:
-  apikey: # For newest comments widget
-
-# Alternative Disqus - Render comments with Disqus API
-# DisqusJS 评论系统，可以实现在网路审查地区载入 Disqus 评论列表，兼容原版
-# https://github.com/SukkaW/DisqusJS
-disqusjs:
-  shortname:
-  apikey:
-  option:
 
 # livere (来必力)
 # https://www.livere.com/
@@ -1163,8 +1149,6 @@ CDN:
     # gitalk_css:
     # blueimp_md5:
     # valine:
-    # disqusjs:
-    # disqusjs_css:
     twikoo: https://npm.elemecdn.com/twikoo@1.6.7/dist/twikoo.all.min.js
     # waline_js:
     # waline_css:

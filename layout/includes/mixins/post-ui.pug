@@ -69,15 +69,6 @@ mixin postUI(posts)
           
           if theme.comments.card_post_count
             case theme.comments.use[0]
-              when 'Disqus'
-                +countBlockInIndex
-                  a(href=full_url_for(link) + '#disqus_thread')
-                    i.fa-solid.fa-spinner.fa-spin
-              when 'Disqusjs'
-                +countBlockInIndex
-                  a(href=full_url_for(link) + '#disqusjs')
-                    span.disqus-comment-count(data-disqus-url=full_url_for(link))
-                      i.fa-solid.fa-spinner.fa-spin
               when 'Valine'
                 +countBlockInIndex
                   a(href=url_for(link) + '#post-comment')

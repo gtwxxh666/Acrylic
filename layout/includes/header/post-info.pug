@@ -115,11 +115,6 @@
               a(href=url_for(page.path) + '#post-comment')
                 span#twikoo-count
                   i.fa-solid.fa-spinner.fa-spin
-          when 'Remark42'
-            +countBlock
-              a(href=url_for(page.path) + '#post-comment')
-                span.remark42__counter(data-url=urlNoIndex())
-                  i.fa-solid.fa-spinner.fa-spin
           when 'Artalk'
             +countBlock
               a(href=url_for(page.path) + '#post-comment')

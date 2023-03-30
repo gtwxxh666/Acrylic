@@ -307,7 +307,7 @@ addtoany:
 
 comments:
   # Up to two comments system, the first will be shown as default
-  # Choose: Valine/Waline Comments/Twikoo/Remark42/Artalk
+  # Choose: Valine/Waline Comments/Twikoo/Artalk
   use: Twikoo # Valine
   text: true # Display the comment name next to the button
   # lazyload: The comment system will be load when comment element enters the browser's viewport.
@@ -358,13 +358,6 @@ twikoo:
   envId:
   region:
   visitor: false
-  option:
-
-# Remark42
-# https://remark42.com/docs/configuration/frontend/
-remark42:
-  host: # Your Host URL
-  siteId: # Your Site ID
   option:
 
 # Artalk

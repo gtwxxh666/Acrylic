@@ -83,10 +83,6 @@ mixin postUI(posts)
                 +countBlockInIndex
                   a.twikoo-count(href=url_for(link) + '#post-comment')
                     i.fa-solid.fa-spinner.fa-spin
-              when 'Facebook Comments'
-                +countBlockInIndex
-                  a(href=url_for(link) + '#post-comment')
-                    span.fb-comments-count(data-href=urlNoIndex(article.permalink))
               when 'Remark42'
                 +countBlockInIndex
                   a(href=url_for(link) + '#post-comment')

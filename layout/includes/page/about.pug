@@ -92,6 +92,15 @@ if site.data.about
                   |  
                   span.banner-button-text=text
         .author-content-item-group.column.mapAndInfo
+          - let mapBackground = item.map.background
+          - let mapBackgroundDark = item.map.backgroundDark
+          style.
+            .author-content-item.map {
+              background-image: url(#{mapBackground});
+            }
+            [data-theme='dark'] .author-content-item.map {
+              background-image: url(#{mapBackgroundDark});
+            }
           .author-content-item.map.single
             - let mapTitle = item.map.title
             - let mapStrengthenTitle = item.map.StrengthenTitle
